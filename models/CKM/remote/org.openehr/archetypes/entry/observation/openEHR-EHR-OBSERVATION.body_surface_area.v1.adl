@@ -1,0 +1,251 @@
+﻿archetype (adl_version=1.4; uid=47c86b03-8289-497c-8203-5234618614ad)
+	openEHR-EHR-OBSERVATION.body_surface_area.v1
+
+concept
+	[at0000]	-- Body surface area
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Cailin Lowry">
+		["organisation"] = <"The Chris O'Brien Lifehouse at RPA">
+		["email"] = <"cailin.lowry@lifehouserpa.org.au">
+		["date"] = <"2012-12-07">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the measured or calculated surface area of a human body.">
+			use = <"Use to record the measured or calculated surface area of a human body. 
+
+BSA can be used to support clinical decision-making, including but not limited to:
+- determine the dosage of chemotherapy and other drugs with a narrow therapeutic index; 
+- calculation of the cardiac index; and
+- calculation of intravenous fluid requirements.">
+			keywords = <"body", "surface", "area", "BSA", "surface area">
+			misuse = <"Not to be used to record the percentage of body surface area involvement in burns or other skin damage etc. This information should be carried in separate specific archetypes related to burns assessment.
+
+Not to be used to record the adjusted Body surface area eg a calculation of the BSA of a person with limb amputation, based on other body part measurements and an algorithm - use OBSERVATION.body_surface_area-adjusted.">
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"published">
+	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway", "Koray Atalag, University of Auckland, New Zealand", "Gustavo Bacelar-Silva, Healthcare Designs, Brazil (openEHR Editor)", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)", "Lars Bitsch-Larsen, Haukeland University hospital, Norway", "Margaret Campbell, Queensland Health, Australia", "Rong Chen, Cambio Healthcare Systems, Sweden", "Einar Fosse, National Centre for Integrated Care and Telemedicine, Norway", "Sebastian Garde, Ocean Informatics, Germany", "Christian Ghan, Lifehouse, Australia", "Heather Grain, Llewelyn Grain Informatics, Australia", "Sam Heard, Ocean Informatics, Australia", "Evelyn Hovenga, EJSH Consulting, Australia", "Lars Karlsen, DIPS ASA, Norway", "Lars Morgan Karlsen, DIPS ASA, Norway", "Shinji Kobayashi, Kyoto University, Japan", "Harmony Kosola, Alberta Health Services, Canada", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Lars Ivar Mehlum, Nasjonal IKT HF, Norway", "Bjoern Naess, DIPS ASA, Norway", "Andrej Orel, Marand d.o.o., Slovenia", "Jussara Rotzsch, UNB, Brazil", "Norwegian Review Summary, Nasjonal IKT HF, Norway", "Rowan Thomas, St. Vincent's Hospital Melbourne, Australia", "Richard Townley-O'Neill, Australian Digital Health Agency, Australia", "Dennis Valk, Code24 BV, Netherlands">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"Wikipedia contributors. Body surface area. Wikipedia, The Free Encyclopedia. April 3, 2018. Available at: https://en.wikipedia.org/wiki/Body_surface_area. Accessed April 18, 2018.
+
+Mosteller RD: Simplified Calculation of Body Surface Area. N Engl J Med 1987 Oct 22;317(17):1098 (letter)
+
+DuBois D; DuBois EF: A formula to estimate the approximate surface area if height and weight be known. Arch Int Med 1916 17:863-71.
+
+Haycock G.B., Schwartz G.J.,Wisotsky D.H.  Geometric method for measuring body surface area: A height weight formula validated in infants, children and adults.   The Journal of Pediatrics 1978  93:1:62-66
+
+Gehan EA, George SL, Estimation of human body surface area from height and weight.   Cancer Chemother Rep 1970 54:225-35.
+
+Boyd E, The growth of the surface area of the human body. Minneapolis: university of Minnesota Press, 1935.  (Formula from: http://www.ispub.com/journals/IJA/Vol2N2/bsa.htm )
+
+Lam TK, Leung DT: More on simplified calculation of body-surface area. N Engl J Med 1988 Apr 28;318(17):1130, (letter).
+
+Wang Y, Moss J, Thisted R. Predictors of body surface area. J Clin Anesth. 1992; 4(1):4-10.">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"CD1282E7BA0AD102E0E084C93D201006">
+		["build_uid"] = <"a12fc0db-5c3a-428d-bc22-f081ac1bcf35">
+		["revision"] = <"1.0.0">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Body surface area
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0004] matches {	-- Body Surface Area
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::335]>
+												list = <
+													["1"] = <
+														units = <"m2">
+														magnitude = <|>=0.0|>
+														precision = <|2|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {	-- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0020] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0021] occurrences matches {0..1} matches {	-- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0005] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Method
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0010, 	-- System entry
+									at0011]	-- Manual entry
+								}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Formula
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0012, 	-- Dubois and Dubois
+									at0013, 	-- Mosteller
+									at0014, 	-- Haycock
+									at0015, 	-- Gehan and George
+									at0016, 	-- Boyd
+									at0017, 	-- Fujimoto
+									at0018]	-- Takihara
+								}
+							}
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0008] occurrences matches {0..*} matches {	-- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Body surface area">
+					description = <"The measured or calculated surface area of a human body.">
+					comment = <"May also be referred to as BSA.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Body Surface Area">
+					description = <"The measured or calculated surface area of a human body.">
+					comment = <"For example: '1.81 m2'">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Formula">
+					description = <"Formula used to calculate the BSA.">
+					comment = <"For example: Mosteller, DuBois and DuBois, Haycock and Boyd.">
+				>
+				["at0007"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0008"] = <
+					text = <"Device">
+					description = <"The device used to measure or estimate the body surface area.">
+				>
+				["at0009"] = <
+					text = <"Method">
+					description = <"The method by which the body surface area was entered into the clinical system.">
+				>
+				["at0010"] = <
+					text = <"System entry">
+					description = <"The Area was entered automatically by the clinical system and without manual intervention of the clinician.">
+				>
+				["at0011"] = <
+					text = <"Manual entry">
+					description = <"The Area was entered manually by the clinician.">
+				>
+				["at0012"] = <
+					text = <"Dubois and Dubois">
+					description = <"The Dubois and Dubois formula was used to calculate the body surface area.">
+				>
+				["at0013"] = <
+					text = <"Mosteller">
+					description = <"The Mosteller formula was used to calculate the body surface area.">
+				>
+				["at0014"] = <
+					text = <"Haycock">
+					description = <"The Haycock formula was used to calculate the body surface area.">
+				>
+				["at0015"] = <
+					text = <"Gehan and George">
+					description = <"The Gehan and George formula was used to calculate the body surface area.">
+				>
+				["at0016"] = <
+					text = <"Boyd">
+					description = <"The Boyd formula was used to calculate the body surface area.">
+				>
+				["at0017"] = <
+					text = <"Fujimoto">
+					description = <"The Fujimoto formula was used to calculate the body surface area.">
+				>
+				["at0018"] = <
+					text = <"Takihara">
+					description = <"The Takihara formula was used to calculate the body surface area.">
+				>
+				["at0019"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the measurement, not captured in other fields.">
+				>
+				["at0020"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0021"] = <
+					text = <"Confounding factors">
+					description = <"Record of any issues or factors that may impact on the measurement or calculation of body surface area.">
+					comment = <"For example: noting limb amputation; or skin diseases.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,623 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.pam_13.v0
+
+concept
+	[at0000]	-- PAM-13
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard McNicoll">
+		["email"] = <"hildi@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["date"] = <"2018-05-16">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording and reporting of details of the PAM-13 (Patient Activation Measures) questionnaire.">
+			use = <"Use to capture and report the details of the PAM-13 (Patient Activation Measures) questionnaire.
+
+While openEHR archetypes are all freely available under an open license, the specific content of this archetype is copyright protected and requires a licence. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners. ">
+			misuse = <"Not to be used unless the terms of copyright and licence have been observed.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["references"] = <"https://www.insigniahealth.com/products/pam-survey cited 16-May-2018.
+
+https://www.kingsfund.org.uk/publications/supporting-people-manage-their-health cited 16-May-2018.
+
+http://hpr.weill.cornell.edu/divisions/biostatistics/pdf/Gerber-Research_Seminar_Talk-5-10-07.pdf cited 16-May-2018.">
+		["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["MD5-CAM-1.0.1"] = <"06A555CDF8DD95C2C5412213DA820D5B">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- PAM-13
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- 1. Responsible for taking care of health
+										value matches {
+											0|[local::at0009], 	-- Not applicable
+											1|[local::at0005], 	-- Disagree strongly
+											2|[local::at0006], 	-- Disagree
+											3|[local::at0007], 	-- Agree
+											4|[local::at0008]  	-- Agree strongly
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- 2. Active role is most important
+										value matches {
+											0|[local::at0015], 	-- Not applicable
+											1|[local::at0016], 	-- Strongly disagree
+											2|[local::at0017], 	-- Disagree
+											3|[local::at0018], 	-- Agree
+											4|[local::at0019]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0020] occurrences matches {0..1} matches {	-- 3. Confident about preventing or reducing problems
+										value matches {
+											0|[local::at0021], 	-- Not applicable
+											1|[local::at0022], 	-- Strongly disagree
+											2|[local::at0023], 	-- Disagree
+											3|[local::at0024], 	-- Agree
+											4|[local::at0025]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {	-- 4. Know about medications
+										value matches {
+											0|[local::at0027], 	-- Not applicable
+											1|[local::at0028], 	-- Strongly disagree
+											2|[local::at0029], 	-- Disagree
+											3|[local::at0030], 	-- Agree
+											4|[local::at0031]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0032] occurrences matches {0..1} matches {	-- 5. Confident about whether to go to doctor
+										value matches {
+											0|[local::at0033], 	-- Not applicable
+											1|[local::at0034], 	-- Strongly disagree
+											2|[local::at0035], 	-- Disagree
+											3|[local::at0036], 	-- Agree
+											4|[local::at0037]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0038] occurrences matches {0..1} matches {	-- 6. Confident about telling concerns
+										value matches {
+											0|[local::at0039], 	-- Not applicable
+											1|[local::at0040], 	-- Strongly disagree
+											2|[local::at0041], 	-- Disagree
+											3|[local::at0042], 	-- Agree
+											4|[local::at0043]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0044] occurrences matches {0..1} matches {	-- 7. Confident about home treatments
+										value matches {
+											0|[local::at0045], 	-- Not applicable
+											1|[local::at0046], 	-- Strongly disagree
+											2|[local::at0047], 	-- Disagree
+											3|[local::at0048], 	-- Agree
+											4|[local::at0049]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0050] occurrences matches {0..1} matches {	-- 8. Understand health problems and causes
+										value matches {
+											0|[local::at0051], 	-- Not applicable
+											1|[local::at0052], 	-- Strongly disagree
+											2|[local::at0053], 	-- Disagree
+											3|[local::at0054], 	-- Agree
+											4|[local::at0055]  	-- Strongly agrees
+										}
+									}
+									ELEMENT[at0056] occurrences matches {0..1} matches {	-- 9. Know about available treatments
+										value matches {
+											0|[local::at0057], 	-- Not applicable
+											1|[local::at0058], 	-- Strongly disagree
+											2|[local::at0059], 	-- Disagree
+											3|[local::at0060], 	-- Agree
+											4|[local::at0061]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0062] occurrences matches {0..1} matches {	-- 10. Maintain lifestyle changes
+										value matches {
+											0|[local::at0063], 	-- Not applicable
+											1|[local::at0064], 	-- Strongly disagree
+											2|[local::at0065], 	-- Disagree
+											3|[local::at0066], 	-- Agree
+											4|[local::at0067]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0068] occurrences matches {0..1} matches {	-- 11. Know how to prevent health problems
+										value matches {
+											0|[local::at0069], 	-- Not applicable
+											1|[local::at0070], 	-- Strongly disagree
+											2|[local::at0071], 	-- Disagree
+											3|[local::at0072], 	-- Agree
+											4|[local::at0073]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0074] occurrences matches {0..1} matches {	-- 12. Confident about solutions for new health problems
+										value matches {
+											0|[local::at0075], 	-- Not applicable
+											1|[local::at0076], 	-- Strongly disagree
+											2|[local::at0077], 	-- Disagree
+											3|[local::at0078], 	-- Agree
+											4|[local::at0079]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0080] occurrences matches {0..1} matches {	-- 13. Confident about maintaining lifestyle changes when stressed
+										value matches {
+											0|[local::at0081], 	-- Not applicable
+											1|[local::at0082], 	-- Strongly disagree
+											2|[local::at0083], 	-- Disagree
+											3|[local::at0084], 	-- Agree
+											4|[local::at0085]  	-- Strongly agree
+										}
+									}
+									ELEMENT[at0093] occurrences matches {0..1} matches {	-- PAM score
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::380]>
+												list = <
+													["1"] = <
+														units = <"1">
+														magnitude = <|0.0..100.0|>
+														precision = <|1|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0088] occurrences matches {0..1} matches {	-- Level
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0089, 	-- Level 1
+													at0090, 	-- Level 2
+													at0091, 	-- Level 3
+													at0092]	-- Level 4
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0010] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0011] occurrences matches {0..*} matches {	-- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0012] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0013] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"PAM-13">
+					description = <"Patient Activation Measure.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"1. Responsible for taking care of health">
+					description = <"Patient reported extent to which they agree with statement that they are the person who is responsible for taking care of their health.">
+					comment = <"Questionnaire wording: '1. I am the person who is responsible for
+taking care of my health.'">
+				>
+				["at0005"] = <
+					text = <"Disagree strongly">
+					description = <"The patient disagrees strongly with the statement that they are the person who is responsible for taking care of their health.">
+				>
+				["at0006"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees with the statement that they are the person who is responsible for taking care of their health.">
+				>
+				["at0007"] = <
+					text = <"Agree">
+					description = <"The patient agrees with the statement that they are the person who is responsible for taking care of their health.">
+				>
+				["at0008"] = <
+					text = <"Agree strongly">
+					description = <"The patient agrees strongly with the statement that they are the person who is responsible for taking care of their health.">
+				>
+				["at0009"] = <
+					text = <"Not applicable">
+					description = <"The patient states that the statement that they are the person responsible for taking care of their health does not applu to them.">
+				>
+				["at0010"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+				>
+				["at0012"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0013"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0014"] = <
+					text = <"2. Active role is most important">
+					description = <"Patient reported extent to which they agree with statement that taking an active role in their own health care is the most important thing that affects their health.">
+					comment = <"Questionnaire wording: '2. Taking an active role in my own health care
+is the most important thing that affects my health.'">
+				>
+				["at0015"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement that taking an active role in their own health care is the most important thing that affects their health is not applicable to them.">
+				>
+				["at0016"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that taking an active role in their own health care is the most important thing that affects their health.">
+				>
+				["at0017"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that taking an active role in their own health care is the most important thing that affects their health.">
+				>
+				["at0018"] = <
+					text = <"Agree">
+					description = <"The patient agrees that taking an active role in their own health care is the most important thing that affects their health.">
+				>
+				["at0019"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that taking an active role in their own health care is the most important thing that affects their health.">
+				>
+				["at0020"] = <
+					text = <"3. Confident about preventing or reducing problems">
+					description = <"Patient reported extent to which they agree with statement that they are confident they can help prevent or reduce problems associated with their health.">
+					comment = <"Questionnaire wording: '3. I am confident I can help prevent or reduce
+problems associated with my health.'">
+				>
+				["at0021"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement that they are confident they can help prevent or reduce problems associated with their health is not applicable to them.">
+				>
+				["at0022"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they are confident they can help prevent or reduce problems associated with their health.">
+				>
+				["at0023"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they are confident they can help prevent or reduce problems associated with their health.">
+				>
+				["at0024"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they are confident they can help prevent or reduce problems associated with their health.">
+				>
+				["at0025"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they are confident they can help prevent or reduce problems associated with their health.">
+				>
+				["at0026"] = <
+					text = <"4. Know about medications">
+					description = <"Patient reported extent to which they agree with statement that they know what each of their prescribed medications do.">
+					comment = <"Questionnaire wording: '4. I know what each of my prescribed
+medications do.'">
+				>
+				["at0027"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement that they know what each of their prescribed medications do is not applicable to them.">
+				>
+				["at0028"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they know what each of their medications do.">
+				>
+				["at0029"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they know what each of their medications do.">
+				>
+				["at0030"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they know what each of their medications do.">
+				>
+				["at0031"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they know what each of their medications do.">
+				>
+				["at0032"] = <
+					text = <"5. Confident about whether to go to doctor">
+					description = <"Patient reported extent to which they agree with statement that they are confident that they can tell whether they need to go to the doctor or whether they can take care of a health problem themselves.">
+					comment = <"Questionnaire wording: '5. I am confident that I can tell whether I need
+to go to the doctor or whether I can take care of a health problem myself.'">
+				>
+				["at0033"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement that they are confident that they can tell whether they need to go to the doctor or whether they can take care of a health problem themselves is not applicable to them.">
+				>
+				["at0034"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they are confident that they can tell whether they need to go to the doctor or whether they can take care of a health problem themselves.">
+				>
+				["at0035"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they are confident that they can tell whether they need to go to the doctor or whether they can take care of a health problem themselves.">
+				>
+				["at0036"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they are confident that they can tell whether they need to go to the doctor or whether they can take care of a health problem themselves.">
+				>
+				["at0037"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they are confident that they can tell whether they need to go to the doctor or whether they can take care of a health problem themselves.">
+				>
+				["at0038"] = <
+					text = <"6. Confident about telling concerns">
+					description = <"Patient reported extent to which they agree with statement that they are confident that they can tell a doctor or nurse concerns they have even when he or she does not ask.">
+					comment = <"Questionnaire wording: '6. I am confident that I can tell a doctor or
+nurse concerns I have even when he or she does not ask.'">
+				>
+				["at0039"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement that they can tell a doctor or nurse concerns they have even when he or she does not ask is not applicable to them.">
+				>
+				["at0040"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they are confident that they can tell a doctor or nurse concerns they have even when he or she does not ask.">
+				>
+				["at0041"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they are confident that they can tell a doctor or nurse concerns they have even when he or she does not ask.">
+				>
+				["at0042"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they are confident that they can tell a doctor or nurse concerns they have even when he or she does not ask.">
+				>
+				["at0043"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they are confident that they can tell a doctor or nurse concerns they have even when he or she does not ask.">
+				>
+				["at0044"] = <
+					text = <"7. Confident about home treatments">
+					description = <"Patient reported extent to which they agree with statement that they are confident that they can carry out medical treatments they may need to do at home.">
+					comment = <"Questionnaire wording: '7. I am confident that I can carry out medical
+treatments I may need to do at home.'">
+				>
+				["at0045"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement  that they are confident that they can carry out medical treatments they may need to do at home is not applicable to them.">
+				>
+				["at0046"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they are confident that they can carry out medical treatments they may need to do at home.">
+				>
+				["at0047"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they are confident that they can carry out medical treatments they may need to do at home.">
+				>
+				["at0048"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they are confident that they can carry out medical treatments they may need to do at home.">
+				>
+				["at0049"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they are confident that they can carry out medical treatments they may need to do at home.">
+				>
+				["at0050"] = <
+					text = <"8. Understand health problems and causes">
+					description = <"Patient reported extent to which they agree with statement that they understand their health problems and what causes them.">
+					comment = <"Questionnaire wording: '8. I understand my health problems and what
+causes them.'">
+				>
+				["at0051"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement  that they understand their health problems and what causes them is not applicable to them.">
+				>
+				["at0052"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they understand their health problems and what causes them.">
+				>
+				["at0053"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they understand their health problems and what causes them.">
+				>
+				["at0054"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they understand their health problems and what causes them.">
+				>
+				["at0055"] = <
+					text = <"Strongly agrees">
+					description = <"The patient strongly agrees that they understand their health problems and what causes them.">
+				>
+				["at0056"] = <
+					text = <"9. Know about available treatments">
+					description = <"Patient reported extent to which they agree with statement that they know what treatments are available for their health problems.">
+					comment = <"Questionnaire wording: '9. I know what treatments are available for
+my health problems.'">
+				>
+				["at0057"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement that they know what treatments are available for their health problems is not applicable to them.">
+				>
+				["at0058"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they know what treatments are available for their health problems.">
+				>
+				["at0059"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they know what treatments are available for their health problems.">
+				>
+				["at0060"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they know what treatments are available for their health problems.">
+				>
+				["at0061"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they know what treatments are available for their health problems.">
+				>
+				["at0062"] = <
+					text = <"10. Maintain lifestyle changes">
+					description = <"Patient reported extent to which they agree with statement that they have been able to maintain lifestyle changes like healthy eating or exercising.">
+					comment = <"Questionnaire wording: '10. I have been able to maintain lifestyle
+changes, like healthy eating or exercising.'">
+				>
+				["at0063"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement that they have been able to maintain lifestyle changes like healthy eating or exercising is not applicable to them. ">
+				>
+				["at0064"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they have been able to maintain lifestyle changes like healthy eating or exercising.">
+				>
+				["at0065"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they have been able to maintain lifestyle changes like healthy eating or exercising.">
+				>
+				["at0066"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they have been able to maintain lifestyle changes like healthy eating or exercising.">
+				>
+				["at0067"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they have been able to maintain lifestyle changes like healthy eating or exercising.">
+				>
+				["at0068"] = <
+					text = <"11. Know how to prevent health problems">
+					description = <"Patient reported extent to which they agree with statement that they know how to prevent problems with their health.">
+					comment = <"Questionnaire wording: '11. I know how to prevent problems with my
+health.'">
+				>
+				["at0069"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement that they know how to prevent problems with their health is not applicable to them.">
+				>
+				["at0070"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they know how to prevent problems with their health.">
+				>
+				["at0071"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they know how to prevent problems with their health.">
+				>
+				["at0072"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they know how to prevent problems with their health.">
+				>
+				["at0073"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they know how to prevent problems with their health.">
+				>
+				["at0074"] = <
+					text = <"12. Confident about solutions for new health problems">
+					description = <"Patient reported extent to which they agree with statement that they are confident they can work out solutions when new problems arise with their health.">
+					comment = <"Questionnaire wording: '12. I am confident I can work out solutions
+when new problems arise with my health.'">
+				>
+				["at0075"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement that they are confident they can work out solutions when new problems arise with their health is not applicable to them.">
+				>
+				["at0076"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they are confident they can work out solutions when new problems arise with their health.">
+				>
+				["at0077"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they are confident they can work out solutions when new problems arise with their health.">
+				>
+				["at0078"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they are confident they can work out solutions when new problems arise with their health.">
+				>
+				["at0079"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they are confident they can work out solutions when new problems arise with their health.">
+				>
+				["at0080"] = <
+					text = <"13. Confident about maintaining lifestyle changes when stressed">
+					description = <"Patient reported extent to which they agree with statement that they are confident they can maintain lifestyle changes like healthy eating and exercising even in times of stress.">
+					comment = <"Questionnaire wording: '13. I am confident that I can maintain lifestyle
+changes, like healthy eating and exercising, even during times of stress.'">
+				>
+				["at0081"] = <
+					text = <"Not applicable">
+					description = <"The patient confirms that the statement that they are confident they can maintain lifestyle changes like healthy eating and exercising even in times of stress is not applicable to them.">
+				>
+				["at0082"] = <
+					text = <"Strongly disagree">
+					description = <"The patient strongly disagrees that they are confident they can maintain lifestyle changes like healthy eating and exercising even in times of stress.">
+				>
+				["at0083"] = <
+					text = <"Disagree">
+					description = <"The patient disagrees that they are confident they can maintain lifestyle changes like healthy eating and exercising even in times of stress.">
+				>
+				["at0084"] = <
+					text = <"Agree">
+					description = <"The patient agrees that they are confident they can maintain lifestyle changes like healthy eating and exercising even in times of stress.">
+				>
+				["at0085"] = <
+					text = <"Strongly agree">
+					description = <"The patient strongly agrees that they are confident they can maintain lifestyle changes like healthy eating and exercising even in times of stress.">
+				>
+				["at0088"] = <
+					text = <"Level">
+					description = <"The four levels of patient activation.">
+				>
+				["at0089"] = <
+					text = <"Level 1">
+					description = <"PAM Score 0-47: Individuals tend to be passive and feel overwhelmed by managing their own health. They may not understand their role in the care process.">
+				>
+				["at0090"] = <
+					text = <"Level 2">
+					description = <"PAM Score 47.1 - 55.1: Individuals may lack the knowledge and confidence to manage their health.">
+				>
+				["at0091"] = <
+					text = <"Level 3">
+					description = <"PAM Score 55.2 - 67.0: Individuals appear to be taking action but may still lack the confidence and skill to support their behaviours.">
+				>
+				["at0092"] = <
+					text = <"Level 4">
+					description = <"PAM Score 66.1 - 100: Individuals have adopted many of the behaviours needed to support their health but may not be able to maintain them in the face of life stressors.">
+				>
+				["at0093"] = <
+					text = <"PAM score">
+					description = <"Total PAM score.">
+				>
+			>
+		>
+	>

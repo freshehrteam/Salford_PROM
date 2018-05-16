@@ -1,0 +1,301 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.eq_5d_5l.v0
+
+concept
+	[at0000]	-- EQ-5D-5L questionnaire
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Hildegard Franke">
+		["email"] = <"hildi@freshehr.com">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["date"] = <"2017-11-06">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of EQ-5D-5L questionnaire information.">
+			use = <"Use to record EQ-5D-5L questionnaire information.
+
+While openEHR archetypes are all freely available under an open license, the specific content of this archetype is copyright protected. Any use of this archetype within implementations must be in compliance with the terms established by the copyright owners.
+
+userinformationservice@euroqol.org.">
+			misuse = <"Not to be used unless the terms of copyright have been observed.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["MD5-CAM-1.0.1"] = <"E00D22BD93D03D30BE3F4CE56730FC71">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- EQ-5D-5L questionnaire
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Mobility
+										value matches {
+											1|[local::at0005], 	-- No problems
+											2|[local::at0006], 	-- Slight problems
+											3|[local::at0007], 	-- Moderate problems
+											4|[local::at0008], 	-- Severe problems
+											5|[local::at0009]  	-- Unable
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Self care
+										value matches {
+											1|[local::at0011], 	-- No problems
+											2|[local::at0012], 	-- Slight problems
+											3|[local::at0013], 	-- Moderate problems
+											4|[local::at0014], 	-- Severe problems
+											5|[local::at0015]  	-- Unable
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {	-- Usual activities
+										value matches {
+											1|[local::at0017], 	-- No problem
+											2|[local::at0018], 	-- Slight problems
+											3|[local::at0019], 	-- Moderate problems
+											4|[local::at0020], 	-- Severe problems
+											5|[local::at0021]  	-- Unable
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..1} matches {	-- Pain or discomfort
+										value matches {
+											1|[local::at0023], 	-- No pain or discomfort
+											2|[local::at0024], 	-- Slight palin or discomfort
+											3|[local::at0025], 	-- Moderate pain or discomfort
+											4|[local::at0026], 	-- Severe pain or discomfort
+											5|[local::at0027]  	-- Extreme pain or discomfort
+										}
+									}
+									ELEMENT[at0028] occurrences matches {0..1} matches {	-- Anxiety or depression
+										value matches {
+											1|[local::at0031], 	-- No anxiety or depression
+											2|[local::at0032], 	-- Slight anxiety or depression
+											3|[local::at0033], 	-- Moderate anxiety or depression
+											4|[local::at0034], 	-- Severe anxiety or depression
+											5|[local::at0035]  	-- Extreme anxiety or depression
+										}
+									}
+									ELEMENT[at0030] occurrences matches {0..1} matches {	-- Health state
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|11111..55555|}
+											}
+										}
+									}
+									ELEMENT[at0029] occurrences matches {0..1} matches {	-- Health VAS
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..100|}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0036] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0037] occurrences matches {0..*} matches {	-- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0038] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0039] occurrences matches {0..*} matches {	-- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"EQ-5D-5L questionnaire">
+					description = <"EQ-5D-5L questionnaire.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Mobility">
+					description = <"Patient-reported description of level of mobility today.">
+				>
+				["at0005"] = <
+					text = <"No problems">
+					description = <"The patient reports no problems walking about.">
+				>
+				["at0006"] = <
+					text = <"Slight problems">
+					description = <"The patient reports slight problems walking about.">
+				>
+				["at0007"] = <
+					text = <"Moderate problems">
+					description = <"The patient reports moderate problems walking about.">
+				>
+				["at0008"] = <
+					text = <"Severe problems">
+					description = <"The patient reports severe problems walking about.">
+				>
+				["at0009"] = <
+					text = <"Unable">
+					description = <"The patient reports being unable to walk about.">
+				>
+				["at0010"] = <
+					text = <"Self care">
+					description = <"Patient-reported level of self care ability today.">
+				>
+				["at0011"] = <
+					text = <"No problems">
+					description = <"The patient reports no problems washing or dressing themselves.">
+				>
+				["at0012"] = <
+					text = <"Slight problems">
+					description = <"The patient reports slight problems washing or dressing themselves.">
+				>
+				["at0013"] = <
+					text = <"Moderate problems">
+					description = <"The patient reports moderate problems washing or dressing themselves.">
+				>
+				["at0014"] = <
+					text = <"Severe problems">
+					description = <"The patient reports severe problems washing or dressing themselves.">
+				>
+				["at0015"] = <
+					text = <"Unable">
+					description = <"The patient reports being unable to wash or dress themselves.">
+				>
+				["at0016"] = <
+					text = <"Usual activities">
+					description = <"Patient reported level of problems with usual activities today.">
+				>
+				["at0017"] = <
+					text = <"No problem">
+					description = <"The patient reports no problem doing usual activities.">
+				>
+				["at0018"] = <
+					text = <"Slight problems">
+					description = <"The patient reports slight problems doing usual activities.">
+				>
+				["at0019"] = <
+					text = <"Moderate problems">
+					description = <"The patient reports moderate problems doing usual activities.">
+				>
+				["at0020"] = <
+					text = <"Severe problems">
+					description = <"The patient reports severe problems doing usual activities.">
+				>
+				["at0021"] = <
+					text = <"Unable">
+					description = <"The patient reports being unable to do their usual activities.">
+				>
+				["at0022"] = <
+					text = <"Pain or discomfort">
+					description = <"Patient-reported level of pain or discomfort today.">
+				>
+				["at0023"] = <
+					text = <"No pain or discomfort">
+					description = <"The patient reports having no pain or discomfort.">
+				>
+				["at0024"] = <
+					text = <"Slight palin or discomfort">
+					description = <"The patient reports having slight pain or discomfort.">
+				>
+				["at0025"] = <
+					text = <"Moderate pain or discomfort">
+					description = <"The patient reports having moderate pain or discomfort.">
+				>
+				["at0026"] = <
+					text = <"Severe pain or discomfort">
+					description = <"The patient reports having severe pain or discomfort.">
+				>
+				["at0027"] = <
+					text = <"Extreme pain or discomfort">
+					description = <"The patient reports having extreme pain or discomfort.">
+				>
+				["at0028"] = <
+					text = <"Anxiety or depression">
+					description = <"Patient-reported level of anxiety or depression today.">
+				>
+				["at0029"] = <
+					text = <"Health VAS">
+					description = <"Patient-reported assessment of how good or bad health is today, on a scale of 0 to 100, where 100 means the best health imaginable and 0 means the worst health imaginable.">
+				>
+				["at0030"] = <
+					text = <"Health state">
+					description = <"Unique health state code represented as 5 digit value made up from score from each of the 5 health state dimensions. ">
+				>
+				["at0031"] = <
+					text = <"No anxiety or depression">
+					description = <"The patient reports not feeling anxious or depressed.">
+				>
+				["at0032"] = <
+					text = <"Slight anxiety or depression">
+					description = <"The patient reports feeling slightly anxious or depressed.">
+				>
+				["at0033"] = <
+					text = <"Moderate anxiety or depression">
+					description = <"The patient reports feeling moderately anxious or depressed.">
+				>
+				["at0034"] = <
+					text = <"Severe anxiety or depression">
+					description = <"The patient reports feeling severely anxious or depressed.">
+				>
+				["at0035"] = <
+					text = <"Extreme anxiety or depression">
+					description = <"The patient reports feeling extremely anxious or depressed.">
+				>
+				["at0036"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0037"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the score or interpretation.">
+				>
+				["at0038"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0039"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+			>
+		>
+	>
