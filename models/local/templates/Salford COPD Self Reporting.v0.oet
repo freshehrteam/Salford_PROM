@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>d0162ca0-2087-4220-af02-9d11ba5f6420</id>
+  <name>Salford COPD Self Reporting.v0</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="COPD Self Reported Observations">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.indirect_oximetry.v0" concept_name="Indirect oximetry" max="1" path="/content" name="O2Sat">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+        <eventConstraint>
+          <allowedType>PointInTime</allowedType>
+        </eventConstraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" name="O2Sat" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0044]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0045]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0046]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0039]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0040]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0019]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0058]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0036]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0014]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0014]/items[at0016]" max="0" />
+      <Rule path="/protocol[at0007]" hide_on_form="true" />
+      <Rule path="/protocol[at0007]/items[at0009]" max="0" />
+      <Rule path="/protocol[at0007]/items[at0020]" max="0" />
+      <Rule path="/protocol[at0007]/items[at0037]" max="0" />
+      <Rule path="/protocol[at0007]/items[at0038]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.pulse.v1" concept_name="Pulse/Heart beat" max="1" path="/content" name="Heart Rate">
+      <Rule path="/data[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0002]/events[at0003]" hide_on_form="true">
+        <eventConstraint>
+          <allowedType>PointInTime</allowedType>
+        </eventConstraint>
+      </Rule>
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1005]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+        <nameConstraint>
+          <excludedValues>local::at1026</excludedValues>
+        </nameConstraint>
+      </Rule>
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0005]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1055]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1030]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1022]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1023]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1059]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0012]" hide_on_form="true" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0012]/items[at0013]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0012]/items[at1018]" max="0" />
+      <Rule path="/data[at0002]/events[at1036]" max="0" />
+      <Rule path="/protocol[at0010]" hide_on_form="true" />
+      <Rule path="/protocol[at0010]/items[at1019]" max="0" />
+      <Rule path="/protocol[at0010]/items[at1037]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1" concept_name="Blood Pressure" max="1" path="/content">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0006]" hide_on_form="true">
+        <eventConstraint>
+          <allowedType>PointInTime</allowedType>
+        </eventConstraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1006]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1007]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at0033]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at0008]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1052]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1043]" max="0" />
+      <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1005]" max="0" />
+      <Rule path="/data[at0001]/events[at1042]" max="0" />
+      <Rule path="/protocol[at0011]" hide_on_form="true" />
+      <Rule path="/protocol[at0011]/items[at0013]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1033]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1035]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1038]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1054]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1055]" max="0" />
+      <Rule path="/protocol[at0011]/items[at1010]" max="0" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v2" concept_name="Body temperature" max="1" path="/content">
+      <Rule path="/data[at0002]" hide_on_form="true" />
+      <Rule path="/data[at0002]/events[at0003]" hide_on_form="true">
+        <eventConstraint>
+          <allowedType>PointInTime</allowedType>
+        </eventConstraint>
+      </Rule>
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+        <constraint xsi:type="quantityConstraint">
+          <excludedUnits>[degF]</excludedUnits>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0063]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0029]" hide_on_form="true" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0030]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0041]" max="0" />
+      <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0065]" max="0" />
+      <Rule path="/protocol[at0020]" hide_on_form="true" />
+      <Rule path="/protocol[at0020]/items[at0021]" max="0" />
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
+      <Rule path="/context/other_context[at0001]/items[at0005]" max="0" />
+      <hide_on_form>true</hide_on_form>
+    </Context>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
+    <digest id="MD5-CAM-1.0.1">1DA7D8EDC23CF1B673C05E6E8FE28EB1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.indirect_oximetry.v0">
+    <digest id="MD5-CAM-1.0.1">6FB68015CF6566D72C955337D48275CA</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.pulse.v1">
+    <digest id="MD5-CAM-1.0.1">7E0F17C058F5F85DB171D40C60FB28A4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v1">
+    <digest id="MD5-CAM-1.0.1">7341F7E8A07ACE883A5F541BA79F2B95</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v2">
+    <digest id="MD5-CAM-1.0.1">7D1C9AAF0C93C3F3C583405151EBD4C4</digest>
+  </integrity_checks>
+</template>
