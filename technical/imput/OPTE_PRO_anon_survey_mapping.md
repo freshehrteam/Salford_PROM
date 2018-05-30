@@ -123,7 +123,7 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   #### QuestionType_Code: `'MYHQ1'`:
 
   ##### JSON target:  
-   `"salford_renal_proms_impot_report/pam-13:0/a1._responsible_for_taking_care_of_health|code": "{{atCode}}",`
+   `"salford_renal_proms_impot_report/pam-13:0/point_in_time:0/a1._responsible_for_taking_care_of_health|code": "{{atCode}}",`
 
 
   `'MYHQ1'` Response value | Target openEHR `atCode`
@@ -148,13 +148,13 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-  		"salford_renal_proms_import_report/pam-13:0/a1._responsible_for_taking_care_of_health|code": "at0008",
+  		"salford_renal_proms_import_report/pam-13:0/point_in_time:0/a1._responsible_for_taking_care_of_health|code": "at0008",
   ```
 
   #### QuestionType_Code: `'MYHQ2'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/a2._active_role_is_most_important|code": "{{atCode}}",`
+   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a2._active_role_is_most_important|code": "{{atCode}}",`
 
 
   `'MYHQ2'` Response value | Target openEHR `atCode`
@@ -179,13 +179,13 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-   "salford_renal_proms_import_report/pam-13:0/a2._active_role_is_most_important|code": "at0019",
+   "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a2._active_role_is_most_important|code": "at0019",
   ```
 
   #### QuestionType_Code: `'MYHQ3'`:
 
   ##### JSON target:  
-   `"salford_renal_proms_import_report/pam-13:0/a3._confident_about_preventing_or_reducing_problems|code": "{{atCode}}",`
+   `"salford_renal_proms_import_report/pam-13:0/point_in_time:0/a3._confident_about_preventing_or_reducing_problems|code": "{{atCode}}",`
 
 
   `'MYHQ3'` Response value | Target openEHR `atCode`
@@ -210,14 +210,14 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-    "salford_renal_proms_import_report/pam-13:0/a3._confident_about_preventing_or_reducing_problems|code": "at0025",
+    "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a3._confident_about_preventing_or_reducing_problems|code": "at0025",
   ```
 
 
   #### QuestionType_Code: `'MYHQ4'`:
 
   ##### JSON target:  
-   `"salford_renal_proms_import_report/pam-13:0/a4._know_about_medications|code": "{{atCode}}",`
+   `"salford_renal_proms_import_report/pam-13:0/point_in_time:0/a4._know_about_medications|code": "{{atCode}}",`
 
 
   `'MYHQ4'` Response value | Target openEHR `atCode`
@@ -241,8 +241,8 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
 
   Maps to
 
-  ```json
-    "salford_renal_proms_import_report/pam-13:0/a4._know_about_medications|code":
+  ```jsonpoint_in_time:0/
+    "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a4._know_about_medications|code":
     "at0030",
   ```
 
@@ -250,7 +250,7 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   #### QuestionType_Code: `'MYHQ5'`:
 
   ##### JSON target:  
-   `"salford_renal_proms_import_report/pam-13:0/a5._confident_about_whether_to_go_to_doctor|code": "{{atCode}}",`
+   `"salford_renal_proms_import_report/pam-13:0/point_in_time:0/a5._confident_about_whether_to_go_to_doctor|code": "{{atCode}}",`
 
 
   `'MYHQ5'` Response value | Target openEHR `atCode`
@@ -275,13 +275,13 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-    "salford_renal_proms_import_report/pam-13:0/a5._confident_about_whether_to_go_to_doctor|code": "at0036",
+    "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a5._confident_about_whether_to_go_to_doctor|code": "at0036",
   ```
 
   #### QuestionType_Code: `'MYHQ6'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/a6._confident_about_telling_concerns|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a6._confident_about_telling_concerns|code": {{atCode}}",`
 
 
   `'MYHQ6'` Response value | Target openEHR `atCode`
@@ -306,14 +306,14 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pam-13:0/a6._confident_about_telling_concerns|code": "at0041",
+      "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a6._confident_about_telling_concerns|code": "at0041",
   ```
 
 
   #### QuestionType_Code: `'MYHQ7'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/a7._confident_about_home_treatments|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a7._confident_about_home_treatments|code": {{atCode}}",`
 
 
   `'MYHQ7'` Response value | Target openEHR `atCode`
@@ -338,14 +338,14 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pam-13:0/a7._confident_about_home_treatments|code": "at0047",
+      "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a7._confident_about_home_treatments|code": "at0047",
   ```
 
 
   #### QuestionType_Code: `'MYHQ8'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/a8._understand_health_problems_and_causes|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a8._understand_health_problems_and_causes|code": {{atCode}}",`
 
 
   `'MYHQ8'` Response value | Target openEHR `atCode`
@@ -370,14 +370,14 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pam-13:0/a8._understand_health_problems_and_causes|code": "at0051",
+      "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a8._understand_health_problems_and_causes|code": "at0051",
   ```
 
 
   #### QuestionType_Code: `'MYHQ9'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/a9._know_about_available_treatments|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a9._know_about_available_treatments|code": {{atCode}}",`
 
 
   `'MYHQ9'` Response value | Target openEHR `atCode`
@@ -402,14 +402,14 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pam-13:0/a9._know_about_available_treatments|code": "at0057",
+      "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a9._know_about_available_treatments|code": "at0057",
   ```
 
 
   #### QuestionType_Code: `'MYHQ10'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/a10._maintain_lifestyle_changes|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a10._maintain_lifestyle_changes|code": {{atCode}}",`
 
 
   `'MYHQ10'` Response value | Target openEHR `atCode`
@@ -434,14 +434,14 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pam-13:0/a10._maintain_lifestyle_changes|code": "at0067",
+      "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a10._maintain_lifestyle_changes|code": "at0067",
   ```
 
 
   #### QuestionType_Code: `'MYHQ11'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/a11._know_how_to_prevent_health_problems|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a11._know_how_to_prevent_health_problems|code": {{atCode}}",`
 
 
   `'MYHQ11'` Response value | Target openEHR `atCode`
@@ -466,14 +466,14 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pam-13:0/a11._know_how_to_prevent_health_problems|code": "at0070",
+      "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a11._know_how_to_prevent_health_problems|code": "at0070",
   ```
 
 
   #### QuestionType_Code: `'MYHQ12'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/a12._confident_about_solutions_for_new_health_problems|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a12._confident_about_solutions_for_new_health_problems|code": {{atCode}}",`
 
 
   `'MYHQ12'` Response value | Target openEHR `atCode`
@@ -498,14 +498,14 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pam-13:0/a12._confident_about_solutions_for_new_health_problems|code": "at0076",
+      "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a12._confident_about_solutions_for_new_health_problems|code": "at0076",
   ```
 
 
   #### QuestionType_Code: `'MYHQ13'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/a13._confident_about_maintaining_lifestyle_changes_when_stressed|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a13._confident_about_maintaining_lifestyle_changes_when_stressed|code": {{atCode}}",`
 
 
   `'MYHQ13'` Response value | Target openEHR `atCode`
@@ -530,7 +530,7 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pam-13:0/a13._confident_about_maintaining_lifestyle_changes_when_stressed|code": "at0081",
+      "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a13._confident_about_maintaining_lifestyle_changes_when_stressed|code": "at0081",
   ```
 
 
@@ -565,7 +565,7 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   #### QuestionType_Code: `'YSQ1'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/pain|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/pain|code": {{atCode}}",`
 
 
   `'YSQ1'` Response value | Target openEHR `atCode`
@@ -590,13 +590,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/pain|code": "at0012",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/pain|code": "at0012",
   ```
 
   #### QuestionType_Code: `'YSQ2'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/shortness_of_breath|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/shortness_of_breath|code": {{atCode}}",`
 
 
   `'YSQ2'` Response value | Target openEHR `atCode`
@@ -621,13 +621,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/shortness_of_breath|code": "at0018",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/shortness_of_breath|code": "at0018",
   ```
 
   #### QuestionType_Code: `'YSQ3'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/weakness_or_lack_of_energy|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/weakness_or_lack_of_energy|code": {{atCode}}",`
 
 
   `'YSQ3'` Response value | Target openEHR `atCode`
@@ -652,13 +652,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/weakness_or_lack_of_energy|code": "at0024",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/weakness_or_lack_of_energy|code": "at0024",
   ```
 
   #### QuestionType_Code: `'YSQ4'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/nausea|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/nausea|code": {{atCode}}",`
 
 
   `'YSQ4'` Response value | Target openEHR `atCode`
@@ -683,13 +683,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/nausea|code": "at0031",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/nausea|code": "at0031",
   ```
 
   #### QuestionType_Code: `'YSQ5'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/vomiting|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/vomiting|code": {{atCode}}",`
 
 
   `'YSQ5'` Response value | Target openEHR `atCode`
@@ -714,13 +714,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/vomiting|code": "at0034",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/vomiting|code": "at0034",
   ```
 
   #### QuestionType_Code: `'YSQ6'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/poor_appetite|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/poor_appetite|code": {{atCode}}",`
 
 
   `'YSQ6'` Response value | Target openEHR `atCode`
@@ -745,13 +745,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/poor_appetite|code": "at0040",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/poor_appetite|code": "at0040",
   ```
 
   #### QuestionType_Code: `'YSQ7'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/constipation|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/constipation|code": {{atCode}}",`
 
 
   `'YSQ7'` Response value | Target openEHR `atCode`
@@ -776,13 +776,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/constipation|code": "at0049",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/constipation|code": "at0049",
   ```
 
   #### QuestionType_Code: `'YSQ8'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/mouth_problems|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/mouth_problems|code": {{atCode}}",`
 
 
   `'YSQ8'` Response value | Target openEHR `atCode`
@@ -807,13 +807,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/mouth_problems|code": "at0052",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/mouth_problems|code": "at0052",
   ```
 
   #### QuestionType_Code: `'YSQ9'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/drowsiness|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/drowsiness|code": {{atCode}}",`
 
 
   `'YSQ9'` Response value | Target openEHR `atCode`
@@ -838,13 +838,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/drowsiness|code": "at0060",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/drowsiness|code": "at0060",
   ```
 
   #### QuestionType_Code: `'YS10'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/poor_mobility|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/poor_mobility|code": {{atCode}}",`
 
 
   `'YSQ10'` Response value | Target openEHR `atCode`
@@ -869,13 +869,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/poor_mobility|code": "at0067",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/poor_mobility|code": "at0067",
   ```
 
   #### QuestionType_Code: `'YS11'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/itching|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/itching|code": {{atCode}}",`
 
 
   `'YSQ11'` Response value | Target openEHR `atCode`
@@ -900,13 +900,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/itching|code": "at0076",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/itching|code": "at0076",
   ```
 
   #### QuestionType_Code: `'YS12'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/difficulty_sleeping|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/difficulty_sleeping|code": {{atCode}}",`
 
 
   `'YSQ12'` Response value | Target openEHR `atCode`
@@ -931,13 +931,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/difficulty_sleeping|code": "at0084",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/difficulty_sleeping|code": "at0084",
   ```
 
   #### QuestionType_Code: `'YS13'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/restless_legs|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/restless_legs|code": {{atCode}}",`
 
 
   `'YSQ13'` Response value | Target openEHR `atCode`
@@ -962,13 +962,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/restless_legs|code": "at0088",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/restless_legs|code": "at0088",
   ```
 
   #### QuestionType_Code: `'YS14'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/feeling_anxious|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/feeling_anxious|code": {{atCode}}",`
 
 
   `'YSQ14'` Response value | Target openEHR `atCode`
@@ -993,14 +993,14 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/feeling_anxious|code": "at0095",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/feeling_anxious|code": "at0095",
   ```
 
 
   #### QuestionType_Code: `'YS15'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/feeling_depressed|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/feeling_depressed|code": {{atCode}}",`
 
 
   `'YSQ15'` Response value | Target openEHR `atCode`
@@ -1025,13 +1025,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/feeling_depressed|code": "at0101",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/feeling_depressed|code": "at0101",
   ```
 
   #### QuestionType_Code: `'YS16'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/changes_in_skin|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/changes_in_skin|code": {{atCode}}",`
 
 
   `'YSQ16'` Response value | Target openEHR `atCode`
@@ -1056,13 +1056,13 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/changes_in_skin|code": "at0106",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/changes_in_skin|code": "at0106",
   ```
 
   #### QuestionType_Code: `'YSQ17'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pos-s_renal:0/diarrhoea|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/diarrhoea|code": {{atCode}}",`
 
 
   `'YSQ17'` Response value | Target openEHR `atCode`
@@ -1087,7 +1087,7 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/pos-s_renal:0/diarrhoea|code": "at0114",
+      "salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/diarrhoea|code": "at0114",
   ```
 
 
@@ -1117,7 +1117,7 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   #### QuestionType_Code: `'YOHQ1'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/mobility|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/mobility|code": {{atCode}}",`
 
 
   `'YOHQ1'` Response value | Target openEHR `atCode`
@@ -1142,14 +1142,14 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/mobility|code": "at0007",
+      "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/mobility|code": "at0007",
   ```
 
 
   #### QuestionType_Code: `'YOHQ2'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/self_care|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/self_care|code": {{atCode}}",`
 
 
   `'YOHQ2'` Response value | Target openEHR `atCode`
@@ -1174,14 +1174,14 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/self_care|code": "at0015",
+      "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/self_care|code": "at0015",
   ```
 
 
   #### QuestionType_Code: `'YOHQ3'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/usual_activities|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/usual_activities|code": {{atCode}}",`
 
 
   `'YOHQ3'` Response value | Target openEHR `atCode`
@@ -1206,14 +1206,14 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/usual_activities|code": "at0019",
+      "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/usual_activities|code": "at0019",
   ```
 
 
   #### QuestionType_Code: `'YOHQ4'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/pain_or_discomfort|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/pain_or_discomfort|code": {{atCode}}",`
 
 
   `'YOHQ4'` Response value | Target openEHR `atCode`
@@ -1238,14 +1238,14 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/pain_or_discomfort|code": "at0025",
+      "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/pain_or_discomfort|code": "at0025",
   ```
 
 
   #### QuestionType_Code: `'YOHQ5'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/anxiety_or_depression|code": {{atCode}}",`
+   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/anxiety_or_depression|code": {{atCode}}",`
 
 
   `'YOHQ5'` Response value | Target openEHR `atCode`
@@ -1270,5 +1270,5 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   Maps to
 
   ```json
-      "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/anxiety_or_depression|code": "at0033",
+      "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/anxiety_or_depression|code": "at0033",
   ```
