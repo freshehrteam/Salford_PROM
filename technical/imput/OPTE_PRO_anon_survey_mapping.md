@@ -1,5 +1,24 @@
 ## OPTE_PRO XML to openEHR FLAT JSON PROMS Mapping guidance
 
+30-May-2018
+V1.1.0
+
+#### Introduction
+
+This document describes the mappings between in input PPTE-PRO PROMS XML document and an output openEHR Marand FLAT JSON document.
+
+When describing the JSON target we have used 'handlebar' type notation to show how the source datapoint is mapped/substituted into the JSON document.
+
+e.g.
+
+```json
+		"ctx/health_care_facility|id": "{{SendingFacility}}",
+```
+
+where `SendingFacility` is the name of the source XML tag.
+
+In a number of cases the incoming value e.g a score or level must be mapped to an internal openEHR code, when the mapping tables will be shown.
+
 #### XML Source: `Patient`
 
 `Patient` is not mapped as this demographics information is not held in the openEHR CDR.
@@ -98,10 +117,11 @@ Each survey maps to a different PROM score 'entry' in the openEHR template
 
 ##### JSON targets:
   ```json
-	"salford_renal_proms_import_report/pam-13/history_origin" :"{{SurveyTime}}",
-	"salford_renal_proms_import_report/pam-13:0/pam_score|magnitude": "{{Score/Value}}",
-	"salford_renal_proms_import_report/pam-13:0/pam_score|unit": "1",
-	"salford_renal_proms_import_report/pam-13:0/level|code": "{{Score/Level}}",
+	"salford_renal_proms_import_report/pam-13:0/history_origin" :"{{SurveyTime}}",
+	"salford_renal_proms_import_report/pam-13:0/point_in_time:0/_name|value" : "{{TypeOfTreatment}}",
+	"salford_renal_proms_import_report/pam-13:0/point_in_time:0/pam_score|magnitude": "{{Score/Value}}",
+	"salford_renal_proms_import_report/pam-13:0/point_in_time:0//pam_score|unit": "1",
+	"salford_renal_proms_import_report/pam-13:0/point_in_time:0/level|code": "{{Score/Level}}",
 	```
 Note that  `pam_score|unit` is hardwired to `1` which designates a real number.
 
@@ -114,10 +134,11 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
 
 ##### Example output
   ```json
-	"salford_renal_proms_import_report/pam-13/history_origin" :"2017-03-06T00:00:00",
-	"salford_renal_proms_import_report/pam-13:0/pam_score|magnitude": "32",
-	"salford_renal_proms_import_report/pam-13:0/pam_score|unit": "1",
-	"salford_renal_proms_import_report/pam-13:0/level|code": "at0089",
+	"salford_renal_proms_import_report/pam-13:0/history_origin" :"2017-03-06T00:00:00",
+	"salford_renal_proms_import_report/pam-13:0/point_in_time:0/_name|value" : "Pre-dialysis",
+	"salford_renal_proms_import_report/pam-13:0/point_in_time:0/pam_score|magnitude": "32",
+	"salford_renal_proms_import_report/pam-13:0/point_in_time:0/pam_score|unit": "1",
+	"salford_renal_proms_import_report/pam-13:0/point_in_time:0/level|code": "at0089",
 	```
 
   #### QuestionType_Code: `'MYHQ1'`:
@@ -241,7 +262,7 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
 
   Maps to
 
-  ```jsonpoint_in_time:0/
+  ```json
     "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a4._know_about_medications|code":
     "at0030",
   ```
@@ -250,7 +271,8 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   #### QuestionType_Code: `'MYHQ5'`:
 
   ##### JSON target:  
-   `"salford_renal_proms_import_report/pam-13:0/point_in_time:0/a5._confident_about_whether_to_go_to_doctor|code": "{{atCode}}",`
+   ```json
+	 "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a5._confident_about_whether_to_go_to_doctor|code": "{{atCode}}",`
 
 
   `'MYHQ5'` Response value | Target openEHR `atCode`
@@ -281,8 +303,9 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   #### QuestionType_Code: `'MYHQ6'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a6._confident_about_telling_concerns|code": {{atCode}}",`
-
+```json
+	 "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a6._confident_about_telling_concerns|code": "{{atCode}}",
+```
 
   `'MYHQ6'` Response value | Target openEHR `atCode`
   ----------------|--------------
@@ -313,8 +336,9 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
   #### QuestionType_Code: `'MYHQ7'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a7._confident_about_home_treatments|code": {{atCode}}",`
-
+   ```json
+	  "salford_renal_proms_import_report/pam-13:0/point_in_time:0/a7._confident_about_home_treatments|code": "{{atCode}}",
+```
 
   `'MYHQ7'` Response value | Target openEHR `atCode`
   ----------------|--------------
@@ -552,14 +576,16 @@ PAM-13 `Score/Level`value | Target openEHR `atCode`
 ```
 ##### JSON targets:
   ```json
-	"salford_renal_proms_import_report/pos-s_renal/history_origin" :"{{SurveyTime}}"
+	"salford_renal_proms_import_report/pos-s_renal:0/history_origin" :"{{SurveyTime}}",
+	"salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/_name|value" :"{{TypeOfTreatment}"
 	```
 
 PROM (POS-S Renal) does not contain any Score values or levels.
 
 ##### Example
   ```json
-	"salford_renal_proms_import_report/pos-s_renal/history_origin" :"2017-03-06T00:00:00"
+	"salford_renal_proms_import_report/pos-s_renal:0/history_origin" :"2017-03-06T00:00:00",
+	"salford_renal_proms_import_report/pos-s_renal:0/point_in_time:0/_name|value" :"Pre-dialysis"
 	```
 
   #### QuestionType_Code: `'YSQ1'`:
@@ -1094,24 +1120,31 @@ PROM (POS-S Renal) does not contain any Score values or levels.
 
 ** `SurveyType/Code = 'EQ5D'` **
 ```xml
-		<Survey>
-			<SurveyTime>2017-03-06T00:00:00</SurveyTime>
-			<SurveyType>
-				<Code>EQ5D</Code>
-			</SurveyType>
-			<Questions>
+<Survey>
+	<SurveyTime>2017-03-06T00:00:00</SurveyTime>
+	<SurveyType>
+		<Code>EQ5D</Code>
+	</SurveyType>
+	<Questions>
+	</Questions>
+	<TypeOfTreatment>Pre-dialysis</TypeOfTreatment>
+	<HDLocation></HDLocation>
+	<Template>Your Health P1 new 01</Template>
+</Survey>
 ```
 
 ##### JSON targets:
   ```json
-	"salford_renal_proms_import_report/eq-5d-5l_questionnaire/history_origin" :"{{SurveyTime}}"
+	"salford_renal_proms_import_report/eq-5d-5l_questionnaire/history_origin" :"{{SurveyTime}}",
+		"salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/_name|value" :"{{TypeOfTreatment}"
 	```
 
 	EQ5D (EQ_5D_5L) does not contain any Score values or levels.
 
 ##### Example
   ```json
-	"salford_renal_proms_import_report/eq-5d-5l_questionnaire/history_origin" :"2017-03-06T00:00:00"
+	"salford_renal_proms_import_report/eq-5d-5l_questionnaire/history_origin" :"2017-03-06T00:00:00",
+		"salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/_name|value" :"Pre-dialysis"
 	```
 
   #### QuestionType_Code: `'YOHQ1'`:
@@ -1213,7 +1246,9 @@ PROM (POS-S Renal) does not contain any Score values or levels.
   #### QuestionType_Code: `'YOHQ4'`:
 
   ##### JSON target:  
-   ` "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/pain_or_discomfort|code": {{atCode}}",`
+   ```json
+	 "salford_renal_proms_import_report/eq-5d-5l_questionnaire:0/point_in_time:0/pain_or_discomfort|code": "{{atCode}}",
+	 ```
 
 
   `'YOHQ4'` Response value | Target openEHR `atCode`
