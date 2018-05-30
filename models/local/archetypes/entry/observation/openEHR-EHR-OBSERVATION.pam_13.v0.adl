@@ -33,7 +33,7 @@ https://www.kingsfund.org.uk/publications/supporting-people-manage-their-health 
 
 http://hpr.weill.cornell.edu/divisions/biostatistics/pdf/Gerber-Research_Seminar_Talk-5-10-07.pdf cited 16-May-2018.">
 		["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-		["MD5-CAM-1.0.1"] = <"06A555CDF8DD95C2C5412213DA820D5B">
+		["MD5-CAM-1.0.1"] = <"95A9496179128BAAE8B1682B2F5B30F2">
 	>
 
 definition
@@ -41,7 +41,7 @@ definition
 		data matches {
 			HISTORY[at0001] matches {	-- Event Series
 				events cardinality matches {1..*; unordered} matches {
-					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {	-- Point in time
 						data matches {
 							ITEM_TREE[at0003] matches {	-- Tree
 								items cardinality matches {0..*; unordered} matches {

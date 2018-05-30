@@ -138,12 +138,12 @@
     <digest id="MD5-CAM-1.0.1">1DA7D8EDC23CF1B673C05E6E8FE28EB1</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.pam_13.v0">
-    <digest id="MD5-CAM-1.0.1">06A555CDF8DD95C2C5412213DA820D5B</digest>
+    <digest id="MD5-CAM-1.0.1">95A9496179128BAAE8B1682B2F5B30F2</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.eq_5d_5l.v0">
-    <digest id="MD5-CAM-1.0.1">E00D22BD93D03D30BE3F4CE56730FC71</digest>
+    <digest id="MD5-CAM-1.0.1">85A71EC554C12A97BA19F775EF5C52F1</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.pos_s_renal.v0">
-    <digest id="MD5-CAM-1.0.1">8CD36F66D095DFCF10DD053018577532</digest>
+    <digest id="MD5-CAM-1.0.1">FC9C67F4EA0FCD33F5A5E1E297C8A2E9</digest>
   </integrity_checks>
 </template>

@@ -29,7 +29,7 @@ While openEHR archetypes are all freely available under an open license, the spe
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["references"] = <"https://pos-pal.org/ cited 16-May-2018.">
 		["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-		["MD5-CAM-1.0.1"] = <"8CD36F66D095DFCF10DD053018577532">
+		["MD5-CAM-1.0.1"] = <"FC9C67F4EA0FCD33F5A5E1E297C8A2E9">
 	>
 
 definition
@@ -37,7 +37,7 @@ definition
 		data matches {
 			HISTORY[at0001] matches {	-- Event Series
 				events cardinality matches {1..*; unordered} matches {
-					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {	-- Point in time
 						data matches {
 							ITEM_TREE[at0003] matches {	-- Tree
 								items cardinality matches {0..*; unordered} matches {

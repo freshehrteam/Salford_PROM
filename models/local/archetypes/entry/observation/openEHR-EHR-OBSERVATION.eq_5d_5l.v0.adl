@@ -30,7 +30,7 @@ userinformationservice@euroqol.org.">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-		["MD5-CAM-1.0.1"] = <"E00D22BD93D03D30BE3F4CE56730FC71">
+		["MD5-CAM-1.0.1"] = <"85A71EC554C12A97BA19F775EF5C52F1">
 	>
 
 definition
@@ -38,7 +38,7 @@ definition
 		data matches {
 			HISTORY[at0001] matches {	-- Event Series
 				events cardinality matches {1..*; unordered} matches {
-					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {	-- Point in time
 						data matches {
 							ITEM_TREE[at0003] matches {	-- Tree
 								items cardinality matches {0..*; unordered} matches {
@@ -144,8 +144,8 @@ ontology
 					description = <"@ internal @">
 				>
 				["at0002"] = <
-					text = <"Any event">
-					description = <"*">
+					text = <"Point in time">
+					description = <"A specific date and/or time which may be explicitly defined in a template or at run-time.">
 				>
 				["at0003"] = <
 					text = <"Tree">
