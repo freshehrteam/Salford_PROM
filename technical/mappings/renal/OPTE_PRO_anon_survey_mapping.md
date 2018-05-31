@@ -3,11 +3,11 @@
 30-May-2018
 V1.1.0
 
-#### Introduction
+### Introduction
 
-This document describes the mappings between in input PPTE-PRO PROMS XML document and an output openEHR Marand FLAT JSON document.
+This document describes the mappings between in input OPTE-PRO PROMS XML document and an output openEHR Marand FLAT JSON document.
 
-When describing the JSON target we have used 'handlebar' type notation to show how the source datapoint is mapped/substituted into the JSON document.
+When describing the JSON target we have used 'handlebar' {{}} type notation to show how the source datapoint is mapped/substituted into the JSON document.
 
 e.g.
 
@@ -18,6 +18,20 @@ e.g.
 where `SendingFacility` is the name of the source XML tag.
 
 In a number of cases the incoming value e.g a score or level must be mapped to an internal openEHR code, when the mapping tables will be shown.
+
+Associated Artefacts
+
+'Source'Archetypes and Templates 
+
+Operational Template
+
+Web Template
+
+Sample openEHR FLAT JSON instance
+
+Original OPTE-XML example
+
+
 
 #### XML Source: `Patient`
 
