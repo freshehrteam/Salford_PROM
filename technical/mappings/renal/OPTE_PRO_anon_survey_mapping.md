@@ -19,18 +19,6 @@ where `SendingFacility` is the name of the source XML tag.
 
 In a number of cases the incoming value e.g a score or level must be mapped to an internal openEHR code, when the mapping tables will be shown.
 
-Associated Artefacts
-
-'Source'Archetypes and Templates 
-
-Operational Template
-
-Web Template
-
-Sample openEHR FLAT JSON instance
-
-Original OPTE-XML example
-
 
 
 #### XML Source: `Patient`

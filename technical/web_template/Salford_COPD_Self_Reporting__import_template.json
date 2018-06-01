@@ -1,0 +1,715 @@
+{
+    "meta": {
+        "href": "http://test.operon.systems/rest/v1/template/Salford%20COPD%20Self%20Reporting.v0"
+    },
+    "webTemplate": {
+        "templateId": "Salford COPD Self Reporting.v0",
+        "version": "2.3",
+        "defaultLanguage": "en",
+        "languages": [
+            "en"
+        ],
+        "tree": {
+            "id": "copd_self_reported_observations",
+            "name": "COPD Self Reported Observations",
+            "localizedName": "COPD Self Reported Observations",
+            "rmType": "COMPOSITION",
+            "nodeId": "openEHR-EHR-COMPOSITION.report.v1",
+            "min": 1,
+            "max": 1,
+            "localizedNames": {
+                "en": "COPD Self Reported Observations"
+            },
+            "localizedDescriptions": {
+                "en": "Document to communicate information to others, commonly in response to a request from another party."
+            },
+            "aqlPath": "",
+            "children": [
+                {
+                    "id": "context",
+                    "rmType": "EVENT_CONTEXT",
+                    "nodeId": "",
+                    "min": 1,
+                    "max": 1,
+                    "aqlPath": "/context",
+                    "children": [
+                        {
+                            "id": "start_time",
+                            "name": "Start_time",
+                            "rmType": "DV_DATE_TIME",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/context/start_time",
+                            "inputs": [
+                                {
+                                    "type": "DATETIME"
+                                }
+                            ],
+                            "inContext": true
+                        },
+                        {
+                            "id": "setting",
+                            "name": "Setting",
+                            "rmType": "DV_CODED_TEXT",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/context/setting",
+                            "inputs": [
+                                {
+                                    "suffix": "code",
+                                    "type": "TEXT"
+                                },
+                                {
+                                    "suffix": "value",
+                                    "type": "TEXT"
+                                }
+                            ],
+                            "inContext": true
+                        }
+                    ]
+                },
+                {
+                    "id": "o2sat",
+                    "name": "O2Sat",
+                    "localizedName": "O2Sat",
+                    "rmType": "OBSERVATION",
+                    "nodeId": "openEHR-EHR-OBSERVATION.indirect_oximetry.v0",
+                    "min": 0,
+                    "max": 1,
+                    "localizedNames": {
+                        "en": "O2Sat"
+                    },
+                    "localizedDescriptions": {
+                        "en": "Method of monitoring blood gas measurements such as SpO₂ and SpCO by indirect, currently non-invasive, means."
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']",
+                    "children": [
+                        {
+                            "id": "any_event",
+                            "name": "Any event",
+                            "localizedName": "Any event",
+                            "rmType": "POINT_EVENT",
+                            "nodeId": "at0002",
+                            "min": 0,
+                            "max": -1,
+                            "localizedNames": {
+                                "en": "Any event"
+                            },
+                            "localizedDescriptions": {
+                                "en": "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+                            },
+                            "annotations": {
+                                "view:pass_through": "true"
+                            },
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/data[at0001]/events[at0002]",
+                            "children": [
+                                {
+                                    "id": "o2sat",
+                                    "name": "O2Sat",
+                                    "localizedName": "O2Sat",
+                                    "rmType": "DV_PROPORTION",
+                                    "nodeId": "at0006",
+                                    "min": 0,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "O2Sat"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "The saturation of oxygen in the peripheral blood, measured via pulse oximetry."
+                                    },
+                                    "annotations": {
+                                        "comment": "SpO₂ is defined as the ratio of oxyhaemoglobin (HbO₂) to the total concentration of haemoglobin (HbO₂ + deoxyhaemoglobin) in peripheral blood."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/data[at0001]/events[at0002]/data[at0003]/items[at0006,'O2Sat']/value",
+                                    "inputs": [
+                                        {
+                                            "suffix": "numerator",
+                                            "type": "DECIMAL",
+                                            "validation": {
+                                                "range": {
+                                                    "minOp": ">=",
+                                                    "min": 0,
+                                                    "maxOp": "<=",
+                                                    "max": 100
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "suffix": "denominator",
+                                            "type": "DECIMAL",
+                                            "validation": {
+                                                "range": {
+                                                    "minOp": ">=",
+                                                    "min": 100,
+                                                    "maxOp": "<=",
+                                                    "max": 100
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "termBindings": {
+                                        "SNOMED-CT": {
+                                            "value": "431314004",
+                                            "terminologyId": "SNOMED-CT"
+                                        },
+                                        "LOINC": {
+                                            "value": "2709-4",
+                                            "terminologyId": "LOINC"
+                                        }
+                                    }
+                                },
+                                {
+                                    "id": "time",
+                                    "name": "Time",
+                                    "rmType": "DV_DATE_TIME",
+                                    "min": 1,
+                                    "max": 1,
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/data[at0001]/events[at0002]/time",
+                                    "inputs": [
+                                        {
+                                            "type": "DATETIME"
+                                        }
+                                    ],
+                                    "inContext": true
+                                }
+                            ]
+                        },
+                        {
+                            "id": "language",
+                            "name": "Language",
+                            "rmType": "CODE_PHRASE",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/language",
+                            "inContext": true
+                        },
+                        {
+                            "id": "encoding",
+                            "name": "Encoding",
+                            "rmType": "CODE_PHRASE",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/encoding",
+                            "inContext": true
+                        },
+                        {
+                            "id": "subject",
+                            "name": "Subject",
+                            "rmType": "PARTY_PROXY",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/subject",
+                            "inContext": true
+                        }
+                    ]
+                },
+                {
+                    "id": "heart_rate",
+                    "name": "Heart Rate",
+                    "localizedName": "Heart Rate",
+                    "rmType": "OBSERVATION",
+                    "nodeId": "openEHR-EHR-OBSERVATION.pulse.v1",
+                    "min": 0,
+                    "max": 1,
+                    "localizedNames": {
+                        "en": "Heart Rate"
+                    },
+                    "localizedDescriptions": {
+                        "en": "Record details about the rate and associated attributes for a pulse or heart beat."
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']",
+                    "children": [
+                        {
+                            "id": "any_event",
+                            "name": "Any event",
+                            "localizedName": "Any event",
+                            "rmType": "POINT_EVENT",
+                            "nodeId": "at0003",
+                            "min": 0,
+                            "max": -1,
+                            "localizedNames": {
+                                "en": "Any event"
+                            },
+                            "localizedDescriptions": {
+                                "en": "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+                            },
+                            "annotations": {
+                                "view:pass_through": "true"
+                            },
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/data[at0002]/events[at0003]",
+                            "children": [
+                                {
+                                    "id": "heart_rate",
+                                    "name": "Heart Rate",
+                                    "localizedName": "Heart Rate",
+                                    "rmType": "DV_QUANTITY",
+                                    "nodeId": "at0004",
+                                    "min": 0,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "Heart Rate"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "The heart rate, measured in beats per minute."
+                                    },
+                                    "annotations": {
+                                        "comment": "Run-time name constraints have been specified, in order to simplify the renaming of this data element to Pulse Rate or Heart Rate, as required."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/data[at0002]/events[at0003]/data[at0001]/items[at0004,'Heart Rate']/value",
+                                    "inputs": [
+                                        {
+                                            "suffix": "magnitude",
+                                            "type": "DECIMAL",
+                                            "validation": {
+                                                "range": {
+                                                    "minOp": ">=",
+                                                    "min": 0
+                                                },
+                                                "precision": {
+                                                    "minOp": ">=",
+                                                    "min": 0,
+                                                    "maxOp": "<=",
+                                                    "max": 0
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "suffix": "unit",
+                                            "type": "CODED_TEXT",
+                                            "list": [
+                                                {
+                                                    "value": "/min",
+                                                    "label": "/min",
+                                                    "validation": {
+                                                        "range": {
+                                                            "minOp": ">=",
+                                                            "min": 0
+                                                        },
+                                                        "precision": {
+                                                            "minOp": ">=",
+                                                            "min": 0,
+                                                            "maxOp": "<=",
+                                                            "max": 0
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "time",
+                                    "name": "Time",
+                                    "rmType": "DV_DATE_TIME",
+                                    "min": 1,
+                                    "max": 1,
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/data[at0002]/events[at0003]/time",
+                                    "inputs": [
+                                        {
+                                            "type": "DATETIME"
+                                        }
+                                    ],
+                                    "inContext": true
+                                }
+                            ]
+                        },
+                        {
+                            "id": "language",
+                            "name": "Language",
+                            "rmType": "CODE_PHRASE",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/language",
+                            "inContext": true
+                        },
+                        {
+                            "id": "encoding",
+                            "name": "Encoding",
+                            "rmType": "CODE_PHRASE",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/encoding",
+                            "inContext": true
+                        },
+                        {
+                            "id": "subject",
+                            "name": "Subject",
+                            "rmType": "PARTY_PROXY",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/subject",
+                            "inContext": true
+                        }
+                    ]
+                },
+                {
+                    "id": "blood_pressure",
+                    "name": "Blood Pressure",
+                    "localizedName": "Blood Pressure",
+                    "rmType": "OBSERVATION",
+                    "nodeId": "openEHR-EHR-OBSERVATION.blood_pressure.v1",
+                    "min": 0,
+                    "max": 1,
+                    "localizedNames": {
+                        "en": "Blood Pressure"
+                    },
+                    "localizedDescriptions": {
+                        "en": "The local measurement of arterial blood pressure which is a surrogate for arterial pressure in the systemic circulation.  Most commonly, use of the term 'blood pressure' refers to measurement of brachial artery pressure in the upper arm."
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]",
+                    "children": [
+                        {
+                            "id": "any_event",
+                            "name": "Any event",
+                            "localizedName": "Any event",
+                            "rmType": "POINT_EVENT",
+                            "nodeId": "at0006",
+                            "min": 0,
+                            "max": -1,
+                            "localizedNames": {
+                                "en": "Any event"
+                            },
+                            "localizedDescriptions": {
+                                "en": "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+                            },
+                            "annotations": {
+                                "view:pass_through": "true"
+                            },
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]",
+                            "children": [
+                                {
+                                    "id": "systolic",
+                                    "name": "Systolic",
+                                    "localizedName": "Systolic",
+                                    "rmType": "DV_QUANTITY",
+                                    "nodeId": "at0004",
+                                    "min": 0,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "Systolic"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "Peak systemic arterial blood pressure  - measured in systolic or contraction phase of the heart cycle."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value",
+                                    "inputs": [
+                                        {
+                                            "suffix": "magnitude",
+                                            "type": "DECIMAL",
+                                            "validation": {
+                                                "range": {
+                                                    "minOp": ">=",
+                                                    "min": 0,
+                                                    "maxOp": "<",
+                                                    "max": 1000
+                                                },
+                                                "precision": {
+                                                    "minOp": ">=",
+                                                    "min": 0,
+                                                    "maxOp": "<=",
+                                                    "max": 0
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "suffix": "unit",
+                                            "type": "CODED_TEXT",
+                                            "list": [
+                                                {
+                                                    "value": "mm[Hg]",
+                                                    "label": "mm[Hg]",
+                                                    "validation": {
+                                                        "range": {
+                                                            "minOp": ">=",
+                                                            "min": 0,
+                                                            "maxOp": "<",
+                                                            "max": 1000
+                                                        },
+                                                        "precision": {
+                                                            "minOp": ">=",
+                                                            "min": 0,
+                                                            "maxOp": "<=",
+                                                            "max": 0
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "termBindings": {
+                                        "SNOMED-CT": {
+                                            "value": "163030003",
+                                            "terminologyId": "SNOMED-CT(2003)"
+                                        }
+                                    }
+                                },
+                                {
+                                    "id": "diastolic",
+                                    "name": "Diastolic",
+                                    "localizedName": "Diastolic",
+                                    "rmType": "DV_QUANTITY",
+                                    "nodeId": "at0005",
+                                    "min": 0,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "Diastolic"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "Minimum systemic arterial blood pressure - measured in the diastolic or relaxation phase of the heart cycle."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0005]/value",
+                                    "inputs": [
+                                        {
+                                            "suffix": "magnitude",
+                                            "type": "DECIMAL",
+                                            "validation": {
+                                                "range": {
+                                                    "minOp": ">=",
+                                                    "min": 0,
+                                                    "maxOp": "<",
+                                                    "max": 1000
+                                                },
+                                                "precision": {
+                                                    "minOp": ">=",
+                                                    "min": 0,
+                                                    "maxOp": "<=",
+                                                    "max": 0
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "suffix": "unit",
+                                            "type": "CODED_TEXT",
+                                            "list": [
+                                                {
+                                                    "value": "mm[Hg]",
+                                                    "label": "mm[Hg]",
+                                                    "validation": {
+                                                        "range": {
+                                                            "minOp": ">=",
+                                                            "min": 0,
+                                                            "maxOp": "<",
+                                                            "max": 1000
+                                                        },
+                                                        "precision": {
+                                                            "minOp": ">=",
+                                                            "min": 0,
+                                                            "maxOp": "<=",
+                                                            "max": 0
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "termBindings": {
+                                        "SNOMED-CT": {
+                                            "value": "163031004",
+                                            "terminologyId": "SNOMED-CT(2003)"
+                                        }
+                                    }
+                                },
+                                {
+                                    "id": "time",
+                                    "name": "Time",
+                                    "rmType": "DV_DATE_TIME",
+                                    "min": 1,
+                                    "max": 1,
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/time",
+                                    "inputs": [
+                                        {
+                                            "type": "DATETIME"
+                                        }
+                                    ],
+                                    "inContext": true
+                                }
+                            ]
+                        },
+                        {
+                            "id": "language",
+                            "name": "Language",
+                            "rmType": "CODE_PHRASE",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/language",
+                            "inContext": true
+                        },
+                        {
+                            "id": "encoding",
+                            "name": "Encoding",
+                            "rmType": "CODE_PHRASE",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/encoding",
+                            "inContext": true
+                        },
+                        {
+                            "id": "subject",
+                            "name": "Subject",
+                            "rmType": "PARTY_PROXY",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/subject",
+                            "inContext": true
+                        }
+                    ],
+                    "termBindings": {
+                        "SNOMED-CT": {
+                            "value": "163020007",
+                            "terminologyId": "SNOMED-CT(2003)"
+                        }
+                    }
+                },
+                {
+                    "id": "body_temperature",
+                    "name": "Body temperature",
+                    "localizedName": "Body temperature",
+                    "rmType": "OBSERVATION",
+                    "nodeId": "openEHR-EHR-OBSERVATION.body_temperature.v2",
+                    "min": 0,
+                    "max": 1,
+                    "localizedNames": {
+                        "en": "Body temperature"
+                    },
+                    "localizedDescriptions": {
+                        "en": "A measurement of the body temperature, which is a surrogate for the core body temperature of the individual."
+                    },
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]",
+                    "children": [
+                        {
+                            "id": "any_event",
+                            "name": "Any event",
+                            "localizedName": "Any event",
+                            "rmType": "POINT_EVENT",
+                            "nodeId": "at0003",
+                            "min": 0,
+                            "max": -1,
+                            "localizedNames": {
+                                "en": "Any event"
+                            },
+                            "localizedDescriptions": {
+                                "en": "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+                            },
+                            "annotations": {
+                                "view:pass_through": "true"
+                            },
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]",
+                            "children": [
+                                {
+                                    "id": "temperature",
+                                    "name": "Temperature",
+                                    "localizedName": "Temperature",
+                                    "rmType": "DV_QUANTITY",
+                                    "nodeId": "at0004",
+                                    "min": 1,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "Temperature"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "The measured body temperature (as a surrogate for the core of the body)."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value",
+                                    "inputs": [
+                                        {
+                                            "suffix": "magnitude",
+                                            "type": "DECIMAL",
+                                            "validation": {
+                                                "range": {
+                                                    "minOp": ">=",
+                                                    "min": 0,
+                                                    "maxOp": "<",
+                                                    "max": 100
+                                                },
+                                                "precision": {
+                                                    "minOp": ">=",
+                                                    "min": 1,
+                                                    "maxOp": "<=",
+                                                    "max": 1
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "suffix": "unit",
+                                            "type": "CODED_TEXT",
+                                            "list": [
+                                                {
+                                                    "value": "Cel",
+                                                    "label": "Cel",
+                                                    "validation": {
+                                                        "range": {
+                                                            "minOp": ">=",
+                                                            "min": 0,
+                                                            "maxOp": "<",
+                                                            "max": 100
+                                                        },
+                                                        "precision": {
+                                                            "minOp": ">=",
+                                                            "min": 1,
+                                                            "maxOp": "<=",
+                                                            "max": 1
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "time",
+                                    "name": "Time",
+                                    "rmType": "DV_DATE_TIME",
+                                    "min": 1,
+                                    "max": 1,
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/time",
+                                    "inputs": [
+                                        {
+                                            "type": "DATETIME"
+                                        }
+                                    ],
+                                    "inContext": true
+                                }
+                            ]
+                        },
+                        {
+                            "id": "language",
+                            "name": "Language",
+                            "rmType": "CODE_PHRASE",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/language",
+                            "inContext": true
+                        },
+                        {
+                            "id": "encoding",
+                            "name": "Encoding",
+                            "rmType": "CODE_PHRASE",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/encoding",
+                            "inContext": true
+                        },
+                        {
+                            "id": "subject",
+                            "name": "Subject",
+                            "rmType": "PARTY_PROXY",
+                            "min": 1,
+                            "max": 1,
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/subject",
+                            "inContext": true
+                        }
+                    ]
+                },
+                {
+                    "id": "composer",
+                    "name": "Composer",
+                    "rmType": "PARTY_PROXY",
+                    "min": 1,
+                    "max": 1,
+                    "aqlPath": "/composer",
+                    "inContext": true
+                }
+            ]
+        }
+    }
+}
