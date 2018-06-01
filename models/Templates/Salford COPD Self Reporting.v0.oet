@@ -74,7 +74,6 @@
       <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0045]" max="0" />
       <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0046]" max="0" />
       <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0058]" max="0" />
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0036]" max="0" />
       <Rule path="/data[at0001]/events[at0002]/state[at0014]" hide_on_form="true" />
       <Rule path="/data[at0001]/events[at0002]/state[at0014]/items[at0016]" max="0" />
       <Rule path="/protocol[at0007]" hide_on_form="true" />
@@ -100,7 +99,6 @@
       <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1030]" max="0" />
       <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1022]" max="0" />
       <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1023]" max="0" />
-      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at1059]" max="0" />
       <Rule path="/data[at0002]/events[at0003]/state[at0012]" hide_on_form="true" />
       <Rule path="/data[at0002]/events[at0003]/state[at0012]/items[at0013]" max="0" />
       <Rule path="/data[at0002]/events[at0003]/state[at0012]/items[at1018]" max="0" />
@@ -119,7 +117,6 @@
       <Rule path="/data[at0001]/events[at0006]/data[at0003]" hide_on_form="true" />
       <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1006]" max="0" />
       <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1007]" max="0" />
-      <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at0033]" max="0" />
       <Rule path="/data[at0001]/events[at0006]/state[at0007]" hide_on_form="true" />
       <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at0008]" max="0" />
       <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1052]" max="0" />
@@ -148,7 +145,6 @@
           <excludedUnits>[degF]</excludedUnits>
         </constraint>
       </Rule>
-      <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0063]" max="0" />
       <Rule path="/data[at0002]/events[at0003]/state[at0029]" hide_on_form="true" />
       <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0030]" max="0" />
       <Rule path="/data[at0002]/events[at0003]/state[at0029]/items[at0041]" max="0" />
