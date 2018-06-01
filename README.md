@@ -27,7 +27,7 @@
 It is intended that these will be uploaded/published to the international [openEHR CKM](openehr.org/ckm).
 
 ##### New templates
-  -  [Salford Renal PROMs Import Report - Salford Renal PROMs Import Report.v0](models/Templates/Salford%20Renal%20PROMs%20Import Report.v0.oet)
+  -  [Salford Renal PROMs Import Report - Salford Renal PROMs Import Report.v0](models/Templates/Salford%20Renal%20PROMs%20Import%20Report.v0.oet)
 
 ##### Mapping guidance / technical artefacts
 
@@ -58,11 +58,11 @@ It is intended that these will be uploaded/published to the international [openE
   - None
 
 ##### New templates
-  -  [COPD Self Reported Observations - Salford COPD Self Reporting.v0](models/Templates/Salford COPD Self Reporting.v0.oet)
+  -  [COPD Self Reported Observations - Salford COPD Self Reporting.v0](models/Templates/Salford%20COPD%20Self%20Reporting.v0.oet)
 
 ##### Mapping guidance / technical artefacts
 
 - [COPD Self Reported Observations Mapping Guidance document](technical/mappings/copd/COPD_Self_Reporting_mapping.md)
 - [Example target COPD Self Reported Observations FLAT JSON instance](technical/instance/Salford_COPD_Self_reporting_FLAT_1.json)
-- [COPD Self Reported Observations - Operational template](technical/operational/Salford COPD Self Reporting.opt)
+- [COPD Self Reported Observations - Operational template](technical/operational/Salford%20COPD%20Self%20Reporting.opt)
 - [COPD Self Reported Observations - Web template](technical/web_template/Salford_COPD_Self_Reporting__import_template.json)
