@@ -55,7 +55,7 @@ Target JSON Header
 "ctx/health_care_facility|id": "9091",  
 ```
 
-** Notes:**
+**Notes:**
 
 All of the values on the header should be hardwired, other than `ctx/time`, which should simply record the current dateTime i.e the time that this document was authored in [ISO8061](http://support.sas.com/documentation/cdl/en/lrdict/64316/HTML/default/viewer.htm#a003169814.htm) format e.g. `2015-07-15T09:03:36Z`
 
@@ -111,7 +111,7 @@ The target archetype / JSION row will depend on the `readcode` attribute in the 
 	"copd_self_reported_observations/body_temperature/any_event:0/comment": "Alerted: Normal",  
 ```
 
- ** Notes: **
+ **Notes:**
 
  - `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
   e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
@@ -139,7 +139,7 @@ The target archetype / JSION row will depend on the `readcode` attribute in the 
   "copd_self_reported_observations/heart_rate/any_event:0/comment": "Alerted: {{Alerted}}",  
 ```
 
-** Notes: **
+**Notes:**
 
 - `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
   e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
@@ -167,7 +167,7 @@ The target archetype / JSION row will depend on the `readcode` attribute in the 
 	"copd_self_reported_observations/o2sat/any_event:0/comment": "Alerted: {{Alerted}}",
 ````
 
-** Notes: **
+**Notes:**
 
 -	`resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
 	e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'

@@ -18,7 +18,7 @@
 
 ##### Reused existing international archetypes
   -  [Report | openEHR-EHR-COMPOSITION.report.v1](models/CKM/remote/org.openehr/archetypes/composition/openEHR-EHR-COMPOSITION.report.v1.adl)
-  - [EQ_5D_5L | openEHR-EHR-OBSERVATION.eq_5d_5l.v0](models/local/archetypes/entry/observation/openEHR-EHR-OBSERVATION.eq_5d_5l.v0.adl) (** Not in international CKM for licensing reasons. **)
+  - [EQ_5D_5L | openEHR-EHR-OBSERVATION.eq_5d_5l.v0](models/local/archetypes/entry/observation/openEHR-EHR-OBSERVATION.eq_5d_5l.v0.adl) (**Not in international CKM for licensing reasons.**)
 
 ##### New archetypes
   - [PAM-13 score | openEHR-EHR-OBSERVATION.pam_13.v0](models/local/archetypes/entry/observation/openEHR-EHR-OBSERVATION.pam_13.v0.adl)
@@ -32,9 +32,9 @@ It is intended that these will be uploaded/published to the international [openE
 ##### Mapping guidance / technical artefacts
 
 - [Renal PROMS Mapping Guidance document](technical/mappings/renal/OPTE_PRO_anon_survey_mapping.md)
-- [Example target RENAL PROMS Import FLAT JSON ** (Sample composition data instance) ** instance](technical/instance/Salford_Renal_PROMS_FLAT_1.json)
-- [Salford Renal PROMs Import Report - Operational template](technical/operational/Salford Renal PROMs Import Report.opt) ** (Use for upload to CDR) **
-- [Salford Renal PROMs Import Report - Web template](technical/web_template/Salford_Renal_PROMS__import_template.json) ** ( Json variant of operational template) **
+- [Example target RENAL PROMS Import FLAT JSON **(Sample composition data)** instance](technical/instance/Salford_Renal_PROMS_FLAT_1.json)
+- [Salford Renal PROMs Import Report - Operational template **(Use for upload to CDR)**](technical/operational/Salford Renal PROMs Import Report.opt)
+- [Salford Renal PROMs Import Report - Web template **(Json variant of operational template)**](technical/web_template/Salford_Renal_PROMS__import_template.json)
 
 
 ### COPD Self Reported Observations
@@ -58,11 +58,11 @@ It is intended that these will be uploaded/published to the international [openE
   - None
 
 ##### New templates
-  -  [COPD Self Reported Observations - Salford COPD Self Reporting.v0](models/local/templates/Salford COPD Self Reporting.v0.oet)
+  -  [COPD Self Reported Observations - Salford COPD Self Reporting.v0](models/Templates/Salford COPD Self Reporting.v0.oet)
 
 ##### Mapping guidance / technical artefacts
 
-- [COPD Self Reported Observations Mapping Guidance document]
-- [Example target COPD Self Reported Observations FLAT JSON instance]()
+- [COPD Self Reported Observations Mapping Guidance document](technical/mappings/copd/COPD_Self_Reporting_mapping.md)
+- [Example target COPD Self Reported Observations FLAT JSON instance](technical/instance/Salford_COPD_Self_reporting_FLAT_1.json)
 - [COPD Self Reported Observations - Operational template](technical/operational/Salford COPD Self Reporting.opt)
-- [COPD Self Reported Observations - Web template]()
+- [COPD Self Reported Observations - Web template](technical/web_template/Salford_COPD_Self_Reporting__import_template.json)
