@@ -27,13 +27,13 @@
 It is intended that these will be uploaded/published to the international [openEHR CKM](openehr.org/ckm).
 
 ##### New templates
-  -  [Salford Renal PROMs Import Report - Salford Renal PROMs Import Report.v0](models/Templates/Salford Renal PROMs Import Report.v0.oet)
+  -  [Salford Renal PROMs Import Report - Salford Renal PROMs Import Report.v0](models/Templates/Salford%20Renal%20PROMs%20Import Report.v0.oet)
 
 ##### Mapping guidance / technical artefacts
 
 - [Renal PROMS Mapping Guidance document](technical/mappings/renal/OPTE_PRO_anon_survey_mapping.md)
 - [Example target RENAL PROMS Import FLAT JSON **(Sample composition data)** instance](technical/instance/Salford_Renal_PROMS_FLAT_1.json)
-- [Salford Renal PROMs Import Report Operational template **(Use for upload to CDR)**](technical/operational/Salford Renal PROMs Import Report.opt)
+- [Salford Renal PROMs Import Report Operational template **(Use for upload to CDR)**](technical/operational/Salford%20Renal%20PROMs%20Import%20Report.opt)
 - [Salford Renal PROMs Import Report - Web template **(Json variant of operational template)**](technical/web_template/Salford_Renal_PROMS__import_template.json)
 
 
