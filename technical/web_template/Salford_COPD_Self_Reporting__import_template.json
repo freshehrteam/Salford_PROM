@@ -73,16 +73,16 @@
                     "name": "O2Sat",
                     "localizedName": "O2Sat",
                     "rmType": "OBSERVATION",
-                    "nodeId": "openEHR-EHR-OBSERVATION.indirect_oximetry.v0",
+                    "nodeId": "openEHR-EHR-OBSERVATION.pulse_oximetry.v1",
                     "min": 0,
                     "max": 1,
                     "localizedNames": {
                         "en": "O2Sat"
                     },
                     "localizedDescriptions": {
-                        "en": "Method of monitoring blood gas measurements such as SpO₂ and SpCO by indirect, currently non-invasive, means."
+                        "en": "Blood oxygen and related measurements, measured by pulse oximetry or pulse CO-oximetry."
                     },
-                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']",
+                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']",
                     "children": [
                         {
                             "id": "any_event",
@@ -101,7 +101,7 @@
                             "annotations": {
                                 "view:pass_through": "true"
                             },
-                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/data[at0001]/events[at0002]",
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/data[at0001]/events[at0002]",
                             "children": [
                                 {
                                     "id": "o2sat",
@@ -118,9 +118,9 @@
                                         "en": "The saturation of oxygen in the peripheral blood, measured via pulse oximetry."
                                     },
                                     "annotations": {
-                                        "comment": "SpO₂ is defined as the ratio of oxyhaemoglobin (HbO₂) to the total concentration of haemoglobin (HbO₂ + deoxyhaemoglobin) in peripheral blood."
+                                        "comment": "SpO₂ is defined as the percentage of oxyhaemoglobin (HbO₂) to the total concentration of haemoglobin (HbO₂ + deoxyhaemoglobin) in peripheral blood."
                                     },
-                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/data[at0001]/events[at0002]/data[at0003]/items[at0006,'O2Sat']/value",
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/data[at0001]/events[at0002]/data[at0003]/items[at0006,'O2Sat']/value",
                                     "inputs": [
                                         {
                                             "suffix": "numerator",
@@ -153,10 +153,31 @@
                                             "terminologyId": "SNOMED-CT"
                                         },
                                         "LOINC": {
-                                            "value": "2709-4",
+                                            "value": "59408-5",
                                             "terminologyId": "LOINC"
                                         }
                                     }
+                                },
+                                {
+                                    "id": "comment",
+                                    "name": "Comment",
+                                    "localizedName": "Comment",
+                                    "rmType": "DV_TEXT",
+                                    "nodeId": "at0036",
+                                    "min": 0,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "Comment"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "A text comment about the pulse oximetry result."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/data[at0001]/events[at0002]/data[at0003]/items[at0036]/value",
+                                    "inputs": [
+                                        {
+                                            "type": "TEXT"
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "time",
@@ -164,7 +185,7 @@
                                     "rmType": "DV_DATE_TIME",
                                     "min": 1,
                                     "max": 1,
-                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/data[at0001]/events[at0002]/time",
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/data[at0001]/events[at0002]/time",
                                     "inputs": [
                                         {
                                             "type": "DATETIME"
@@ -180,7 +201,7 @@
                             "rmType": "CODE_PHRASE",
                             "min": 1,
                             "max": 1,
-                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/language",
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/language",
                             "inContext": true
                         },
                         {
@@ -189,7 +210,7 @@
                             "rmType": "CODE_PHRASE",
                             "min": 1,
                             "max": 1,
-                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/encoding",
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/encoding",
                             "inContext": true
                         },
                         {
@@ -198,7 +219,7 @@
                             "rmType": "PARTY_PROXY",
                             "min": 1,
                             "max": 1,
-                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0,'O2Sat']/subject",
+                            "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/subject",
                             "inContext": true
                         }
                     ]
@@ -294,6 +315,27 @@
                                                     }
                                                 }
                                             ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "comment",
+                                    "name": "Comment",
+                                    "localizedName": "Comment",
+                                    "rmType": "DV_TEXT",
+                                    "nodeId": "at1059",
+                                    "min": 0,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "Comment"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "Additional narrative about the pulse or heart beat findings not captured in other fields."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/data[at0002]/events[at0003]/data[at0001]/items[at1059]/value",
+                                    "inputs": [
+                                        {
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -510,6 +552,27 @@
                                     }
                                 },
                                 {
+                                    "id": "comment",
+                                    "name": "Comment",
+                                    "localizedName": "Comment",
+                                    "rmType": "DV_TEXT",
+                                    "nodeId": "at0033",
+                                    "min": 0,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "Comment"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "Additional narrative about the measurement, not captured in other fields."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0033]/value",
+                                    "inputs": [
+                                        {
+                                            "type": "TEXT"
+                                        }
+                                    ]
+                                },
+                                {
                                     "id": "time",
                                     "name": "Time",
                                     "rmType": "DV_DATE_TIME",
@@ -652,6 +715,27 @@
                                                     }
                                                 }
                                             ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "comment",
+                                    "name": "Comment",
+                                    "localizedName": "Comment",
+                                    "rmType": "DV_TEXT",
+                                    "nodeId": "at0063",
+                                    "min": 0,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "Comment"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "Additional comment about the body temperature measurement not captured in other fields."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/data[at0001]/items[at0063]/value",
+                                    "inputs": [
+                                        {
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
