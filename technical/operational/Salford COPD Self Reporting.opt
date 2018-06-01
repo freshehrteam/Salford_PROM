@@ -509,6 +509,35 @@
                           </expression>
                         </includes>
                       </children>
+                      <children xsi:type="ARCHETYPE_SLOT">
+                        <rm_type_name>CLUSTER</rm_type_name>
+                        <occurrences>
+                          <lower_included>true</lower_included>
+                          <lower_unbounded>false</lower_unbounded>
+                          <upper_unbounded>true</upper_unbounded>
+                          <lower>0</lower>
+                        </occurrences>
+                        <node_id>at0060</node_id>
+                        <includes>
+                          <expression xsi:type="EXPR_BINARY_OPERATOR">
+                            <type>Boolean</type>
+                            <operator>2007</operator>
+                            <precedence_overridden>false</precedence_overridden>
+                            <left_operand xsi:type="EXPR_LEAF">
+                              <type>String</type>
+                              <item xsi:type="xsd:string">archetype_id/value</item>
+                              <reference_type>attribute</reference_type>
+                            </left_operand>
+                            <right_operand xsi:type="EXPR_LEAF">
+                              <type>C_STRING</type>
+                              <item xsi:type="C_STRING">
+                                <pattern>openEHR-EHR-CLUSTER\.multimedia(-[a-zA-Z0-9_]+)*\.v1</pattern>
+                              </item>
+                              <reference_type>constraint</reference_type>
+                            </right_operand>
+                          </expression>
+                        </includes>
+                      </children>
                       <cardinality>
                         <is_ordered>false</is_ordered>
                         <is_unique>false</is_unique>
@@ -796,11 +825,11 @@
           </children>
         </attributes>
         <archetype_id>
-          <value>openEHR-EHR-OBSERVATION.indirect_oximetry.v0</value>
+          <value>openEHR-EHR-OBSERVATION.pulse_oximetry.v1</value>
         </archetype_id>
         <term_definitions code="at0000">
-          <items id="description">Method of monitoring blood gas measurements such as SpO₂ and SpCO by indirect, currently non-invasive, means.</items>
-          <items id="text">Indirect oximetry</items>
+          <items id="description">Blood oxygen and related measurements, measured by pulse oximetry or pulse CO-oximetry.</items>
+          <items id="text">Pulse oximetry</items>
         </term_definitions>
         <term_definitions code="at0001">
           <items id="description">@ internal @</items>
@@ -815,7 +844,7 @@
           <items id="text">Tree</items>
         </term_definitions>
         <term_definitions code="at0006">
-          <items id="comment">SpO₂ is defined as the ratio of oxyhaemoglobin (HbO₂) to the total concentration of haemoglobin (HbO₂ + deoxyhaemoglobin) in peripheral blood.</items>
+          <items id="comment">SpO₂ is defined as the percentage of oxyhaemoglobin (HbO₂) to the total concentration of haemoglobin (HbO₂ + deoxyhaemoglobin) in peripheral blood.</items>
           <items id="description">The saturation of oxygen in the peripheral blood, measured via pulse oximetry.</items>
           <items id="text">SpO₂</items>
         </term_definitions>
@@ -824,6 +853,7 @@
           <items id="text">List</items>
         </term_definitions>
         <term_definitions code="at0009">
+          <items id="comment">For example: Right index finger, left earlobe. Coding with a terminology is preferred, if possible.</items>
           <items id="description">The site of the measurement sensor.</items>
           <items id="text">Sensor site</items>
         </term_definitions>
@@ -837,81 +867,33 @@
           <items id="text">Inspired oxygen</items>
         </term_definitions>
         <term_definitions code="at0016">
-          <items id="description">Comment on and record other incidental factors that may be affect interpretation of the observation. For example, motion, pain, poor perfusion, infant feeding.</items>
+          <items id="comment">For example, motion, pain, poor perfusion, infant feeding, peripheral hypothermia, sedation.</items>
+          <items id="description">Comment on and record other incidental factors that may be affect interpretation of the observation.</items>
           <items id="text">Confounding factors</items>
         </term_definitions>
         <term_definitions code="at0018">
           <items id="description">Details of the non-invasive oximetry device used.</items>
           <items id="text">Oximetry device</items>
         </term_definitions>
-        <term_definitions code="at0019">
-          <items id="description">Details of a series of oximetry readings, other than waveforms, expressed as a multimedia image or series of images. Waveforms should be recorded using the Waveform slot and associated cluster archetype.</items>
-          <items id="text">Multimedia image</items>
-        </term_definitions>
-        <term_definitions code="at0020">
-          <items id="comment">For example: transmittal electrode; reflective electrode; clamp electrode; or strip electrode.</items>
-          <items id="description">The type of measurement sensor used.</items>
-          <items id="text">Sensor type</items>
-        </term_definitions>
         <term_definitions code="at0034">
           <items id="description">Details about physical activity undertaken at the time of measurement.</items>
           <items id="text">Exertion</items>
         </term_definitions>
         <term_definitions code="at0036">
-          <items id="description">A text comment about the indirect oximetry result.</items>
+          <items id="description">A text comment about the pulse oximetry result.</items>
           <items id="text">Comment</items>
         </term_definitions>
-        <term_definitions code="at0037">
-          <items id="comment">The operating temperature of a transcutaneous oximeter electrode.</items>
-          <items id="description">Data element deprecated.</items>
-          <items id="text">X - Electrode operating temperature</items>
-        </term_definitions>
-        <term_definitions code="at0038">
-          <items id="comment">The date and time at which the sensor was applied. Significant for transcutaneous oximetry.</items>
-          <items id="description">Data element deprecated.</items>
-          <items id="text">X - Time of sensor application</items>
-        </term_definitions>
-        <term_definitions code="at0039">
-          <items id="comment">Measured via transcutaneous electrode oximetry, the partial pressure of oxygen in the peripheral blood.</items>
-          <items id="description">Data element deprecated.</items>
-          <items id="text">X - ptcO₂</items>
-        </term_definitions>
-        <term_definitions code="at0040">
-          <items id="comment">Measured via transcutaneous electrode oximetry, the partial pressure of carbon dioxide in the peripheral blood.</items>
-          <items id="description">Data element deprecated.</items>
-          <items id="text">X - ptcCO₂</items>
-        </term_definitions>
         <term_definitions code="at0044">
-          <items id="description">The oxygen content of the peripheral blood, measured via pulse CO-oximetry.</items>
+          <items id="description">The oxygen content of the peripheral blood, calculated based on pulse oximetry and pulse CO-oximetry.</items>
           <items id="text">SpOC</items>
         </term_definitions>
         <term_definitions code="at0045">
-          <items id="description">The saturation of carboxyhaemoglobin in the perpiheral blood, measured via pulse CO-oximetry.</items>
+          <items id="description">The saturation of carboxyhaemoglobin in the peripheral blood, measured via pulse CO-oximetry.</items>
           <items id="text">SpCO</items>
         </term_definitions>
         <term_definitions code="at0046">
-          <items id="description">The saturation of methoxyhaemoglobin in the peripheral blood, measured via pulse CO-oximetry.</items>
+          <items id="description">The saturation of methaemoglobin in the peripheral blood, measured via pulse CO-oximetry.</items>
           <items id="text">SpMet</items>
-        </term_definitions>
-        <term_definitions code="at0048">
-          <items id="description">A pulse oximetry transmittal sensor was applied.</items>
-          <items id="text">Transmittal</items>
-        </term_definitions>
-        <term_definitions code="at0049">
-          <items id="description">A pulse oximetry reflective sensor was applied.</items>
-          <items id="text">Reflective</items>
-        </term_definitions>
-        <term_definitions code="at0050">
-          <items id="description">A pulse oximetry clamp sensor was applied.</items>
-          <items id="text">Clamp</items>
-        </term_definitions>
-        <term_definitions code="at0051">
-          <items id="description">A pulse oximetry strip sensor was applied.</items>
-          <items id="text">Strip</items>
-        </term_definitions>
-        <term_definitions code="at0052">
-          <items id="description">Value deprecated. (A transcutaneous electrode sensor was applied.).</items>
-          <items id="text">X - Electrode</items>
         </term_definitions>
         <term_definitions code="at0054">
           <items id="description">A waveform reading associated with the oximetry measurement.</items>
@@ -919,13 +901,33 @@
         </term_definitions>
         <term_definitions code="at0058">
           <items id="comment">Coding with a terminology is preferred, if possible. For example, normal oxygen saturation or hypoxaemia.</items>
-          <items id="description">Single word, phrase or brief description represents the clinical meaning and significance of the physical examination findings.</items>
+          <items id="description">Single word, phrase or brief description which represents the clinical meaning and significance of the measurements.</items>
           <items id="text">Interpretation</items>
         </term_definitions>
         <term_definitions code="at0059">
           <items id="comment">e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.</items>
           <items id="description">Additional information required to capture local context or to align with other reference models/formalisms.</items>
           <items id="text">Extension</items>
+        </term_definitions>
+        <term_definitions code="at0060">
+          <items id="description">Details of a series of oximetry readings, other than waveforms, expressed as a multimedia image or series of images. Waveforms should be recorded using the Waveform slot and associated cluster archetype.</items>
+          <items id="text">Multimedia image</items>
+        </term_definitions>
+        <term_definitions code="at0061">
+          <items id="description">Sensor site relative to the ductus arteriosus in neonates, to determine whether the blood supply to limb of the sensor site is pre- or post-ductal in cases of patent ductus arteriosus.</items>
+          <items id="text">Pre/post-ductal</items>
+        </term_definitions>
+        <term_definitions code="at0062">
+          <items id="description">The sensor site is pre-ductal.</items>
+          <items id="text">Pre-ductal</items>
+        </term_definitions>
+        <term_definitions code="at0063">
+          <items id="description">The sensor site is post-ductal.</items>
+          <items id="text">Post-ductal</items>
+        </term_definitions>
+        <term_definitions code="at0064">
+          <items id="description">Unable to assess whether the sensor site is pre- or post-ductal.</items>
+          <items id="text">Indeterminate</items>
         </term_definitions>
         <term_bindings terminology="SNOMED-CT">
           <items code="at0006">
@@ -967,7 +969,7 @@
               <terminology_id>
                 <value>LOINC</value>
               </terminology_id>
-              <code_string>2709-4</code_string>
+              <code_string>59408-5</code_string>
             </value>
           </items>
           <items code="at0009">
@@ -978,20 +980,28 @@
               <code_string>20081-6</code_string>
             </value>
           </items>
-          <items code="at0039">
+          <items code="at0044">
             <value>
               <terminology_id>
                 <value>LOINC</value>
               </terminology_id>
-              <code_string>33437-5</code_string>
+              <code_string>57800-5</code_string>
             </value>
           </items>
-          <items code="at0040">
+          <items code="at0045">
             <value>
               <terminology_id>
                 <value>LOINC</value>
               </terminology_id>
-              <code_string>33022-5</code_string>
+              <code_string>86904-0</code_string>
+            </value>
+          </items>
+          <items code="at0046">
+            <value>
+              <terminology_id>
+                <value>LOINC</value>
+              </terminology_id>
+              <code_string>2614-6</code_string>
             </value>
           </items>
         </term_bindings>
@@ -3002,27 +3012,27 @@
     </term_definitions>
   </definition>
   <view>
-    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0]/data[at0001]">
+    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]/data[at0001]">
       <items id="pass_through">
         <value>true</value>
       </items>
     </constraints>
-    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0]/data[at0001]/events[at0002]">
+    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]/data[at0001]/events[at0002]">
       <items id="pass_through">
         <value>true</value>
       </items>
     </constraints>
-    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0]/data[at0001]/events[at0002]/data[at0003]">
+    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]/data[at0001]/events[at0002]/data[at0003]">
       <items id="pass_through">
         <value>true</value>
       </items>
     </constraints>
-    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0]/data[at0001]/events[at0002]/state[at0014]">
+    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]/data[at0001]/events[at0002]/state[at0014]">
       <items id="pass_through">
         <value>true</value>
       </items>
     </constraints>
-    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.indirect_oximetry.v0]/protocol[at0007]">
+    <constraints path="[openEHR-EHR-COMPOSITION.report.v1]/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]/protocol[at0007]">
       <items id="pass_through">
         <value>true</value>
       </items>
