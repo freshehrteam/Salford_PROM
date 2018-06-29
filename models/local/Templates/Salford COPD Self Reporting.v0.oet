@@ -61,6 +61,18 @@
     </other_details>
   </description>
   <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report" name="COPD Self Reported Observations">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.story.v1" concept_name="Story/History" max="1" path="/content" hide_on_form="true">
+      <Rule path="/data[at0001]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
+        <eventConstraint>
+          <allowedType>PointInTime</allowedType>
+        </eventConstraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+      <Rule path="/protocol[at0007]" hide_on_form="true" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.salford_copd_questions.v0" concept_name="Salford COPD questions" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" hide_on_form="true" />
+    </Content>
     <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.pulse_oximetry.v1" concept_name="Pulse oximetry" max="1" path="/content" name="O2Sat">
       <Rule path="/data[at0001]" hide_on_form="true" />
       <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
@@ -127,18 +139,6 @@
       <Rule path="/protocol[at0020]" hide_on_form="true" />
       <Rule path="/protocol[at0020]/items[at0021]" max="0" />
     </Content>
-    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.story.v1" concept_name="Story/History" max="1" path="/content" hide_on_form="true">
-      <Rule path="/data[at0001]" hide_on_form="true" />
-      <Rule path="/data[at0001]/events[at0002]" hide_on_form="true">
-        <eventConstraint>
-          <allowedType>PointInTime</allowedType>
-        </eventConstraint>
-      </Rule>
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
-      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
-      <Rule path="/protocol[at0007]" hide_on_form="true" />
-      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.salford_copd_questions.v0" concept_name="Salford COPD questions" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" hide_on_form="true" />
-    </Content>
     <Context>
       <Rule path="/context/other_context[at0001]" hide_on_form="true" />
       <Rule path="/context/other_context[at0001]/items[at0002]" max="0" />
@@ -149,6 +149,12 @@
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report.v1">
     <digest id="MD5-CAM-1.0.1">1DA7D8EDC23CF1B673C05E6E8FE28EB1</digest>
   </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.story.v1">
+    <digest id="MD5-CAM-1.0.1">1A6AFF556A3135480517C4E830985332</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.salford_copd_questions.v0">
+    <digest id="MD5-CAM-1.0.1">F97C7D92F089176B47D121BFB8E6F22E</digest>
+  </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.pulse_oximetry.v1">
     <digest id="MD5-CAM-1.0.1">3676927CFD7E13F817A619512E6C2B1C</digest>
   </integrity_checks>
@@ -157,11 +163,5 @@
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v2">
     <digest id="MD5-CAM-1.0.1">7D1C9AAF0C93C3F3C583405151EBD4C4</digest>
-  </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.story.v1">
-    <digest id="MD5-CAM-1.0.1">1A6AFF556A3135480517C4E830985332</digest>
-  </integrity_checks>
-  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.salford_copd_questions.v0">
-    <digest id="MD5-CAM-1.0.1">480B0B3AEB2FB197E3C3CFC2B64C2026</digest>
   </integrity_checks>
 </template>

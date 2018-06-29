@@ -28,7 +28,7 @@ This cluster archetype is intended to be used inside a Story/History observation
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-		["MD5-CAM-1.0.1"] = <"480B0B3AEB2FB197E3C3CFC2B64C2026">
+		["MD5-CAM-1.0.1"] = <"F97C7D92F089176B47D121BFB8E6F22E">
 	>
 
 definition
@@ -36,54 +36,144 @@ definition
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Feeling today or since last reading
 				value matches {
-					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015, 	-- As well as usual
+							at0016, 	-- Better than usual
+							at0017]	-- Worse than usual
+						}
+					}
 				}
 			}
 			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Breathing today or since last reading
 				value matches {
-					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0018, 	-- Normal for patient
+							at0019, 	-- Worse than normal for patient
+							at0020]	-- Much worse than normal for patient
+						}
+					}
 				}
 			}
 			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Using oxygen
 				value matches {
-					DV_TEXT matches {
-						value matches {"at0004", "at0005"}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0021, 	-- Yes
+							at0022, 	-- Yes continuous oxygen
+							at0023]	-- No
+						}
+					}
+				}
+			}
+			ELEMENT[at0024] occurrences matches {0..1} matches {	-- Reading taken on oxygen
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0025, 	-- Yes
+							at0026]	-- No
+						}
 					}
 				}
 			}
 			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Shortness of breath since last reading
 				value matches {
-					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0027, 	-- Same as last reading
+							at0028, 	-- Worse than last reading
+							at0029]	-- Much worse than last reading
+						}
+					}
 				}
 			}
 			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Wake with breathing difficulties
 				value matches {
-					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0030, 	-- No
+							at0031, 	-- Waking but normal for patient
+							at0032, 	-- Waking worse than normal for patient
+							at0033]	-- Can't sleep due to breathing
+						}
+					}
 				}
 			}
 			ELEMENT[at0010] occurrences matches {0..1} matches {	-- Coughing
 				value matches {
-					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0034, 	-- Yes
+							at0035]	-- No
+						}
+					}
+				}
+			}
+			ELEMENT[at0036] occurrences matches {0..1} matches {	-- Status of cough
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0037, 	-- Normal for patient
+							at0038, 	-- Worse than normal for patient
+							at0039]	-- Much worse than normal for patient
+						}
+					}
 				}
 			}
 			ELEMENT[at0011] occurrences matches {0..1} matches {	-- Producing sputum
 				value matches {
-					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0040, 	-- Normal for patient
+							at0041, 	-- Worse than nornal for patient
+							at0042]	-- Much worse than normal for patient
+						}
+					}
 				}
 			}
 			ELEMENT[at0012] occurrences matches {0..1} matches {	-- Colour of sputum
 				value matches {
-					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0043, 	-- Clear or white
+							at0044, 	-- Yellow
+							at0045]	-- Green or brown
+						}
+					}
 				}
 			}
 			ELEMENT[at0013] occurrences matches {0..1} matches {	-- Taken medication
 				value matches {
-					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0046, 	-- Yes
+							at0047]	-- No
+						}
+					}
 				}
 			}
 			ELEMENT[at0014] occurrences matches {0..1} matches {	-- Swollen ankles
 				value matches {
-					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0048, 	-- No
+							at0049, 	-- Moderate but not worse than last reading
+							at0050]	-- Yes and getting worse
+						}
+					}
 				}
 			}
 		}
@@ -146,6 +236,150 @@ ontology
 					text = <"Swollen ankles">
 					description = <"Patient-reported statement whether their ankles are swollen.">
 					comment = <"Exact question: 'Are your ankles swollen?'">
+				>
+				["at0015"] = <
+					text = <"As well as usual">
+					description = <"Patient reports that they are feeling as well as usual today or since last reading.">
+				>
+				["at0016"] = <
+					text = <"Better than usual">
+					description = <"Patient reports that they are feeling better than usual today or since last reading.">
+				>
+				["at0017"] = <
+					text = <"Worse than usual">
+					description = <"Patient reports that they are feeling worse than usual today or since last reading.">
+				>
+				["at0018"] = <
+					text = <"Normal for patient">
+					description = <"Patient reports that they are breathing normal for them today or since last reading.">
+				>
+				["at0019"] = <
+					text = <"Worse than normal for patient">
+					description = <"Patient reports that they are breathing worse than normal for them today or since last reading.">
+				>
+				["at0020"] = <
+					text = <"Much worse than normal for patient">
+					description = <"Patient reports that they are breathing much worse than normal for them today or since last reading.">
+				>
+				["at0021"] = <
+					text = <"Yes">
+					description = <"Patient reports that they are using oxygen.">
+				>
+				["at0022"] = <
+					text = <"Yes continuous oxygen">
+					description = <"Patient reports that they are using continuous oxygen.">
+				>
+				["at0023"] = <
+					text = <"No">
+					description = <"Patient reports that they are not using oxygen.">
+				>
+				["at0024"] = <
+					text = <"Reading taken on oxygen">
+					description = <"Patient reported statement whether oxygen saturation reading was taken on oxygen.">
+				>
+				["at0025"] = <
+					text = <"Yes">
+					description = <"Patient reports that oxygen saturation reading was taken on oxygen.">
+				>
+				["at0026"] = <
+					text = <"No">
+					description = <"Patient reports that oxygen saturation reading was not taken on oxygen.">
+				>
+				["at0027"] = <
+					text = <"Same as last reading">
+					description = <"Patient reports that experiencing shortness of breath has been the same as last reading.">
+				>
+				["at0028"] = <
+					text = <"Worse than last reading">
+					description = <"Patient reports that experiencing shortness of breath has been worse than last reading.">
+				>
+				["at0029"] = <
+					text = <"Much worse than last reading">
+					description = <"Patient reports that experiencing shortness of breath has been much worse than last reading.">
+				>
+				["at0030"] = <
+					text = <"No">
+					description = <"Patient reports that they did not wake in the night with breathing difficulties since last reading.">
+				>
+				["at0031"] = <
+					text = <"Waking but normal for patient">
+					description = <"Patient reports that they did wake in the night with breathing difficulties since last reading, but this was normal for them.">
+				>
+				["at0032"] = <
+					text = <"Waking worse than normal for patient">
+					description = <"Patient reports that they did wake in the night with breathing difficulties since last reading, and that this was worse than normal for them.">
+				>
+				["at0033"] = <
+					text = <"Can't sleep due to breathing">
+					description = <"Patient reports that they can't sleep due to breathing since their last reading.">
+				>
+				["at0034"] = <
+					text = <"Yes">
+					description = <"Patient reports that they are coughing.">
+				>
+				["at0035"] = <
+					text = <"No">
+					description = <"Patient reports that they are not coughing.">
+				>
+				["at0036"] = <
+					text = <"Status of cough">
+					description = <"Patient reported statement about whether cough is normal, worse or much worse than normal for them.">
+				>
+				["at0037"] = <
+					text = <"Normal for patient">
+					description = <"Patient reports that cough is normal for them.">
+				>
+				["at0038"] = <
+					text = <"Worse than normal for patient">
+					description = <"Patient reports that cough is worse than normal for them.">
+				>
+				["at0039"] = <
+					text = <"Much worse than normal for patient">
+					description = <"Patient reports that cough is much worse than normal for them.">
+				>
+				["at0040"] = <
+					text = <"Normal for patient">
+					description = <"Patient reports that they are producing sputum normal for them.">
+				>
+				["at0041"] = <
+					text = <"Worse than nornal for patient">
+					description = <"Patient reports that they are producing sputum worse than normal for them.">
+				>
+				["at0042"] = <
+					text = <"Much worse than normal for patient">
+					description = <"Patient reports that they are producing sputum much worse than normal for them.">
+				>
+				["at0043"] = <
+					text = <"Clear or white">
+					description = <"Patient reports that the colour of their sputum is clear or white.">
+				>
+				["at0044"] = <
+					text = <"Yellow">
+					description = <"Patient reports that the colour of their sputum is yellow.">
+				>
+				["at0045"] = <
+					text = <"Green or brown">
+					description = <"Patient reports that the colour of their sputum is green or brown.">
+				>
+				["at0046"] = <
+					text = <"Yes">
+					description = <"Patient reports that they have taken their medication.">
+				>
+				["at0047"] = <
+					text = <"No">
+					description = <"Patient reports that they have not taken their medication.">
+				>
+				["at0048"] = <
+					text = <"No">
+					description = <"Patient reports that their ankles are not swollen.">
+				>
+				["at0049"] = <
+					text = <"Moderate but not worse than last reading">
+					description = <"Patient reports that their ankles are moderately swollen but not worse than last reading.">
+				>
+				["at0050"] = <
+					text = <"Yes and getting worse">
+					description = <"Patient reports that their ankles are swollen and getting worse.">
 				>
 			>
 		>
