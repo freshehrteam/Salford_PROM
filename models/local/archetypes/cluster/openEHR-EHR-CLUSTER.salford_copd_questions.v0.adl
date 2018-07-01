@@ -27,7 +27,7 @@ This cluster archetype is intended to be used inside a Story/History observation
     other_details = <
         ["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
         ["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-        ["MD5-CAM-1.0.1"] = <"43d02111f1596f4dac16b0ec3b4e757c">
+        ["MD5-CAM-1.0.1"] = <"e7c09558069d82800b0b772abd4b7664">
         ["build_uid"] = <"6fd15422-c938-3fff-be32-b1d7f2d756f1">
     >
 
@@ -36,14 +36,9 @@ definition
         items cardinality matches {1..*; unordered} matches {
             ELEMENT[at0001] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0015,
-                            at0016,
-                            at0017]
-                        }
-                    }
+                    0|[local::at0015],
+                    2|[local::at0016],
+                    3|[local::at0017]
                 }
             }
             ELEMENT[at0002] occurrences matches {0..1} matches {
