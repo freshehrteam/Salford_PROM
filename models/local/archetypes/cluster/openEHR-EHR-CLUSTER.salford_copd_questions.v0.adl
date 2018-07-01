@@ -27,7 +27,7 @@ This cluster archetype is intended to be used inside a Story/History observation
     other_details = <
         ["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
         ["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-        ["MD5-CAM-1.0.1"] = <"c7c9888b7b4e709e15a1a3646113733e">
+        ["MD5-CAM-1.0.1"] = <"2f2df58fc5ec08c7d52e8cb7793facf7">
         ["build_uid"] = <"6fd15422-c938-3fff-be32-b1d7f2d756f1">
     >
 
@@ -36,14 +36,14 @@ definition
         items cardinality matches {1..*; unordered} matches {
             ELEMENT[at0001] occurrences matches {0..1} matches {
                 value matches {
-                    0|[local::at0015],
+                    1|[local::at0015],
                     2|[local::at0016],
                     3|[local::at0017]
                 }
             }
             ELEMENT[at0002] occurrences matches {0..1} matches {
                 value matches {
-                    0|[local::at0018],
+                    1|[local::at0018],
                     2|[local::at0019],
                     3|[local::at0020]
                 }
@@ -51,76 +51,67 @@ definition
             ELEMENT[at0003] occurrences matches {0..1} matches {
                 value matches {
                     0|[local::at0021],
-                    2|[local::at0022],
-                    3|[local::at0023]
+                    1|[local::at0022],
+                    2|[local::at0023]
                 }
             }
             ELEMENT[at0024] occurrences matches {0..1} matches {
                 value matches {
-                    0|[local::at0025],
-                    2|[local::at0026]
+                    5|[local::at0025],
+                    1|[local::at0026]
                 }
             }
             ELEMENT[at0006] occurrences matches {0..1} matches {
                 value matches {
-                    0|[local::at0027],
+                    1|[local::at0027],
                     2|[local::at0028],
                     3|[local::at0029]
                 }
             }
             ELEMENT[at0009] occurrences matches {0..1} matches {
                 value matches {
-                    0|[local::at0030],
+                    1|[local::at0030],
                     2|[local::at0031],
-                    1|[local::at0032],
-                    3|[local::at0033]
+                    3|[local::at0032],
+                    4|[local::at0033]
                 }
             }
             ELEMENT[at0010] occurrences matches {0..1} matches {
                 value matches {
-                    2|[local::at0034],
-                    3|[local::at0035]
-                }
-                value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0034,
-                            at0035]
-                        }
-                    }
+                    5|[local::at0034],
+                    0|[local::at0035]
                 }
             }
             ELEMENT[at0036] occurrences matches {0..1} matches {
                 value matches {
-                    0|[local::at0037],
+                    1|[local::at0037],
                     2|[local::at0038],
                     3|[local::at0039]
                 }
             }
             ELEMENT[at0011] occurrences matches {0..1} matches {
                 value matches {
-                    0|[local::at0040],
+                    1|[local::at0040],
                     2|[local::at0041],
                     3|[local::at0042]
                 }
             }
             ELEMENT[at0012] occurrences matches {0..1} matches {
                 value matches {
-                    0|[local::at0043],
+                    1|[local::at0043],
                     2|[local::at0044],
                     3|[local::at0045]
                 }
             }
             ELEMENT[at0013] occurrences matches {0..1} matches {
                 value matches {
-                    0|[local::at0046],
-                    2|[local::at0047]
+                    5|[local::at0046],
+                    1|[local::at0047]
                 }
             }
             ELEMENT[at0014] occurrences matches {0..1} matches {
                 value matches {
-                    0|[local::at0048],
+                    1|[local::at0048],
                     2|[local::at0049],
                     3|[local::at0050]
                 }
