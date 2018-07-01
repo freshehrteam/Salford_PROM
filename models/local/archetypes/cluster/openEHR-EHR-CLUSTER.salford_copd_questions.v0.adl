@@ -27,7 +27,7 @@ This cluster archetype is intended to be used inside a Story/History observation
     other_details = <
         ["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
         ["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-        ["MD5-CAM-1.0.1"] = <"3011045cb520f00e8a57075f008ddd16">
+        ["MD5-CAM-1.0.1"] = <"43d02111f1596f4dac16b0ec3b4e757c">
         ["build_uid"] = <"6fd15422-c938-3fff-be32-b1d7f2d756f1">
     >
 
@@ -176,7 +176,13 @@ definition
                     }
                 }
             }
-            ELEMENT[at0004] occurrences matches {0..1} matches {*}
+            ELEMENT[at0004] occurrences matches {0..1} matches {
+                value matches {
+                    1|[local::at0005],
+                    2|[local::at0007],
+                    3|[local::at0008]
+                }
+            }
         }
     }
 
@@ -384,6 +390,18 @@ ontology
                 >
                 ["at0004"] = <
                     text = <"Swollen">
+                    description = <"*">
+                >
+                ["at0005"] = <
+                    text = <"Low">
+                    description = <"Low">
+                >
+                ["at0007"] = <
+                    text = <"Medioum">
+                    description = <"*">
+                >
+                ["at0008"] = <
+                    text = <"High">
                     description = <"*">
                 >
             >
