@@ -27,7 +27,7 @@ This cluster archetype is intended to be used inside a Story/History observation
     other_details = <
         ["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
         ["current_contact"] = <"Hildegard McNicoll, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
-        ["MD5-CAM-1.0.1"] = <"e7c09558069d82800b0b772abd4b7664">
+        ["MD5-CAM-1.0.1"] = <"c7c9888b7b4e709e15a1a3646113733e">
         ["build_uid"] = <"6fd15422-c938-3fff-be32-b1d7f2d756f1">
     >
 
@@ -43,65 +43,44 @@ definition
             }
             ELEMENT[at0002] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0018,
-                            at0019,
-                            at0020]
-                        }
-                    }
+                    0|[local::at0018],
+                    2|[local::at0019],
+                    3|[local::at0020]
                 }
             }
             ELEMENT[at0003] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0021,
-                            at0022,
-                            at0023]
-                        }
-                    }
+                    0|[local::at0021],
+                    2|[local::at0022],
+                    3|[local::at0023]
                 }
             }
             ELEMENT[at0024] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0025,
-                            at0026]
-                        }
-                    }
+                    0|[local::at0025],
+                    2|[local::at0026]
                 }
             }
             ELEMENT[at0006] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0027,
-                            at0028,
-                            at0029]
-                        }
-                    }
+                    0|[local::at0027],
+                    2|[local::at0028],
+                    3|[local::at0029]
                 }
             }
             ELEMENT[at0009] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0030,
-                            at0031,
-                            at0032,
-                            at0033]
-                        }
-                    }
+                    0|[local::at0030],
+                    2|[local::at0031],
+                    1|[local::at0032],
+                    3|[local::at0033]
                 }
             }
             ELEMENT[at0010] occurrences matches {0..1} matches {
+                value matches {
+                    2|[local::at0034],
+                    3|[local::at0035]
+                }
                 value matches {
                     DV_CODED_TEXT matches {
                         defining_code matches {
@@ -114,68 +93,36 @@ definition
             }
             ELEMENT[at0036] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0037,
-                            at0038,
-                            at0039]
-                        }
-                    }
+                    0|[local::at0037],
+                    2|[local::at0038],
+                    3|[local::at0039]
                 }
             }
             ELEMENT[at0011] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0040,
-                            at0041,
-                            at0042]
-                        }
-                    }
+                    0|[local::at0040],
+                    2|[local::at0041],
+                    3|[local::at0042]
                 }
             }
             ELEMENT[at0012] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0043,
-                            at0044,
-                            at0045]
-                        }
-                    }
+                    0|[local::at0043],
+                    2|[local::at0044],
+                    3|[local::at0045]
                 }
             }
             ELEMENT[at0013] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0046,
-                            at0047]
-                        }
-                    }
+                    0|[local::at0046],
+                    2|[local::at0047]
                 }
             }
             ELEMENT[at0014] occurrences matches {0..1} matches {
                 value matches {
-                    DV_CODED_TEXT matches {
-                        defining_code matches {
-                            [local::
-                            at0048,
-                            at0049,
-                            at0050]
-                        }
-                    }
-                }
-            }
-            ELEMENT[at0004] occurrences matches {0..1} matches {
-                value matches {
-                    1|[local::at0005],
-                    2|[local::at0007],
-                    3|[local::at0008]
+                    0|[local::at0048],
+                    2|[local::at0049],
+                    3|[local::at0050]
                 }
             }
         }
@@ -382,22 +329,6 @@ ontology
                 ["at0050"] = <
                     text = <"Yes and getting worse">
                     description = <"Patient reports that their ankles are swollen and getting worse.">
-                >
-                ["at0004"] = <
-                    text = <"Swollen">
-                    description = <"*">
-                >
-                ["at0005"] = <
-                    text = <"Low">
-                    description = <"Low">
-                >
-                ["at0007"] = <
-                    text = <"Medioum">
-                    description = <"*">
-                >
-                ["at0008"] = <
-                    text = <"High">
-                    description = <"*">
                 >
             >
         >
