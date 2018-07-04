@@ -1,7 +1,7 @@
 ## COPD Self Reporting to openEHR FLAT JSON PROMS Mapping guidance
 
-1st June-2018
-V1.1.0
+29 June-2018
+V2.0.0
 
 ### Introduction
 
@@ -62,45 +62,181 @@ All of the values on the header should be hardwired, other than `ctx/time`, whic
 
 ####  XML source: `patient/protocol/line`
 
-The target archetype / JSION row will depend on the `readcode` attribute in the incoming `line`.
+The target archetype / JSON row will depend on the `question` attribute in the incoming `line`.
 
-#### Systolic and Diastolic Blood pressure
-
+#### How are you feeling today?
 
  ##### `line` attributes
- `readcode`: `2469` or `246A`
+ `question`: `How are you feeling today or since your last reading?'
 
 ```xml
-	<line question='Systolic blood pressure' alerted='Normal' codevalue='' term='O/E - Systolic BP reading' readcode='2469' snomed='254075012' resdate='2015-07-15 09:03:36Z' itemindex='0' units='mmHg' value='149' valuetype='Numeric' />
-	<line question='Diastolic blood pressure' alerted='Normal' codevalue='' term='O/E - Diastolic BP reading' readcode='246A' snomed='254076013' resdate='2015-07-15 09:03:36Z' itemindex='0' units='mmHg' value='86' valuetype='Numeric' />
+<line question='How are you feeling today or since your last reading?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='As well as usual' valuetype='Unknown' />
+
 ```
 ##### JSON target:  
 
 ```json
-	"copd_self_reported_observations/blood_pressure/history_origin" :"{{resdate to ISO format}}"
-	"copd_self_reported_observations/blood_pressure/any_event:0/systolic|magnitude": "{{value where readcode= `2469`}}",
-	"copd_self_reported_observations/blood_pressure/any_event:0/systolic|unit": "mm[Hg]",
-	"copd_self_reported_observations/blood_pressure/any_event:0/diastolic|magnitude":  "{{value where readcode= `2469`}}",
-	"copd_self_reported_observations/blood_pressure/any_event:0/diastolic|unit": "mm[Hg]",
-	"copd_self_reported_observations/blood_pressure/any_event:0/comment": "Alerted: {{Alerted}}",
+  "copd_self_reported_observations/story_history/salford_copd_questions:0/feeling_today_or_since_last_reading|code": "{{value}}",
 ```
+
+##### Value mappings
+
+| Incoming value       | openEHR value |
+|:--------------------:|:-------------:|
+| `As well as usual`   | `at0015`      |
+| `Better than usual`  | `at0016`      |
+| `Worse than usual`   | `at0017`      |
+
+
 ** Notes: **
 
 - `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
   e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
 
--   Where `units=mmHg` these should be mapped to "mm[Hg]" which is official UCUM unit format.
+- `resDate` is carried only once for all of the questions, it being assumed that all of the questions are answered at the same date and time.
 
-- The value of `alerted` should be carried in the `comment` element prepended with
-	'Alerted' e.g.		`alerted='Normal'` => ``.../comment": "Alerted: Normal",``
+
+
+- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
+
+#### How are you breathing today?
+
+ ##### `line` attributes
+ `question`: `How are you breathing today or since your last reading?'
+
+```xml
+<line question='How are you breathing today or since your last reading?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='Normal for you' valuetype='Unknown' />
+```
+##### JSON target:  
+
+```json
+  "copd_self_reported_observations/story_history/salford_copd_questions:0/breathing_today_or_since_last_reading|code": "at0020",
+```
+
+##### Value mappings
+
+| Incoming value       | openEHR value |
+|:--------------------:|:-------------:|
+| `Normal for patient`    | `at0018`      |
+| `Worse for patient`     | `at0019`      |
+| `Much worse for patient`| `at0020`      |
+
+
+** Notes: **
+
+- `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
+  e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
+
+- `resDate` is carried only once for all of the questions, it being assumed that all of the questions are answered at the same date and time.
+
+- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
+
+#### Are you using oxygen?
+
+ ##### `line` attributes
+ `question`: `Are you using oxygen?'
+
+```xml
+<line question='Are you using oxygen?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='No' valuetype='Unknown' />
+```
+##### JSON target:  
+
+```json
+  "copd_self_reported_observations/story_history/salford_copd_questions:0/using_oxygen|code": "at0022",
+```
+
+##### Value mappings
+
+| Incoming value       | openEHR value |
+|:--------------------:|:-------------:|
+| `Yes`    | `at0021`      |
+| `Yes continuous oxygen`     | `at0022`      |
+| `No`| `at0023`      |
+
+
+** Notes: **
+
+- `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
+  e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
+
+- `resDate` is carried only once for all of the questions, it being assumed that all of the questions are answered at the same date and time.
+
+- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
+
+
+#### Reading taken on oxygen?
+
+ ##### `line` attributes
+ `question`: `If using oxygen, was your oxygen saturation reading taken on oxygen?'
+
+```xml
+<line question='If using oxygen, was your oxygen saturation reading taken on oxygen?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='No' valuetype='Unknown' />
+```
+##### JSON target:  
+
+```json
+  "copd_self_reported_observations/story_history/salford_copd_questions:0/using_oxygen|code": "at0022",
+```
+
+##### Value mappings
+
+| Incoming value       | openEHR value |
+|:--------------------:|:-------------:|
+| `Yes`    | `at0025`      |
+| `No`| `at0026`      |
+
+
+** Notes: **
+
+- `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
+  e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
+
+- `resDate` is carried only once for all of the questions, it being assumed that all of the questions are answered at the same date and time.
+
+- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
+
+
+#### Shortness of breath since last reading?
+
+ ##### `line` attributes
+ `question`: `Since your last reading, have you been experiencing shortness of breath?'
+
+```xml
+<line question='Since your last reading, have you been experiencing shortness of breath?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='Same as last reading' valuetype='Unknown' />
+
+```
+##### JSON target:  
+
+```json
+  "copd_self_reported_observations/story_history/salford_copd_questions:0/shortness_of_breath_since_last_reading|code": "at0028",
+```
+
+##### Value mappings
+
+| Incoming value       | openEHR value |
+|:--------------------:|:-------------:|
+| `Same as last reading`    | `at0027`      |
+| `Worse than as last reading`     | `at0028`      |
+| `Much worse than as last reading`| `at0029`      |
+
+
+** Notes: **
+
+- `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
+  e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
+
+- `resDate` is carried only once for all of the questions, it being assumed that all of the questions are answered at the same date and time.
+
+- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
+
 
 #### Body temperature
 
 ##### `line` attributes
-  `readcode`: `2E3.`
+  `question`: `TEMPERATURE`
 
 ```xml
-	<line question='Temperature' alerted='Normal' codevalue='' term='O/E - temperature level' readcode='2E3.' snomed='254075012' resdate='2015-07-15 09:03:36Z' itemindex='0' units='cel' value='149' valuetype='Numeric' />
+<line question='TEMPERATURE' alerted='Normal' codevalue='' term='O/E - Core temperature' readcode='2E25' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='�c' value='35.8' valuetype='Numeric' />
 ```
 ##### JSON target:  
 
@@ -116,7 +252,7 @@ The target archetype / JSION row will depend on the `readcode` attribute in the 
  - `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
   e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
 
- - Where units=mmHg these should be mapped to "Cel" which is official UCUM unit format.
+ - Where units=C these should be mapped to "Cel" which is official UCUM unit format.
 
  - The value of `alerted` should be carried in the `comment` element prepended with
  'Alerted' e.g. `alerted='Normal'` => `".../comment": "Alerted: Normal"`
@@ -125,10 +261,10 @@ The target archetype / JSION row will depend on the `readcode` attribute in the 
 
 ##### `line` attributes
 
-`readcode`= `24c..`
+`question`= `OX_PULSE`
 
 ```xml
-	<line question='Heart rate' alerted='Normal' codevalue='' term='Heart rate' readcode='24c..' snomed='254075012' resdate='2015-07-15 09:03:36Z' itemindex='0' units='cel' value='149' valuetype='Numeric' />
+<line question='OX_PULSE' alerted='Normal' codevalue='' term='' readcode='242' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='Bpm' value='75' valuetype='Numeric' />
 ```
 ##### JSON target:  
 
@@ -149,14 +285,13 @@ The target archetype / JSION row will depend on the `readcode` attribute in the 
 - The value of `alerted` should be carried in the `comment` element prepended with
 	'Alerted' e.g. `alerted='Normal'` => ``.../comment": "Alerted: Normal",``
 
-#### O2 sats
+#### Oxygen Level
 
 ##### `line` attributes
-
-(no suitable Read code) snomed=`431314004`
-
+`question`: `OXYGEN_LEVEL'
 ```xml
-	<line question='O2 sats' alerted='Normal' codevalue='' term='O/E - Systolic BP reading' readcode='2469' snomed='254075012' resdate='2015-07-15 09:03:36Z' itemindex='0' units='cel' value='149' valuetype='Numeric' />
+<line question='OXYGEN_LEVEL' alerted='Normal' codevalue='' term='Blood oxygen saturation' readcode='44YA' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='SpO2' value='93' valuetype='Numeric' />
+
 ```
 ##### JSON target:  
 
