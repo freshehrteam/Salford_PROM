@@ -153,7 +153,7 @@
     <digest id="MD5-CAM-1.0.1">1A6AFF556A3135480517C4E830985332</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.salford_copd_questions.v0">
-    <digest id="MD5-CAM-1.0.1">F97C7D92F089176B47D121BFB8E6F22E</digest>
+    <digest id="MD5-CAM-1.0.1">3165074493766F84004AE20051F38971</digest>
   </integrity_checks>
   <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.pulse_oximetry.v1">
     <digest id="MD5-CAM-1.0.1">3676927CFD7E13F817A619512E6C2B1C</digest>
