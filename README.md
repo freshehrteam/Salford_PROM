@@ -64,6 +64,6 @@ It is intended that these will be uploaded/published to the international [openE
 ##### Mapping guidance / technical artefacts
 
 - [COPD Self Reported Observations Mapping Guidance document](technical/mappings/copd/COPD_Self_Reporting_mapping.md)
-- [Example target COPD Self Reported Observations FLAT JSON instance](technical/instance/Salford_COPD_Self_reporting_FLAT_1.json)
-- [COPD Self Reported Observations - Operational template](technical/operational/Salford%20COPD%20Self%20Reporting.v0.opt)
-- [COPD Self Reported Observations - Web template](technical/web_template/Salford_COPD_Self_Reporting__import_template.json)
+- [Example target COPD Self Reported Observations FLAT JSON **(Sample composition data)** instance](technical/instance/Salford_COPD_Self_reporting_FLAT_1.json)
+- [COPD Self Reported Observations - Operational template **(Use for upload to CDR)**](technical/operational/Salford%20COPD%20Self%20Reporting.v0.opt)
+- [COPD Self Reported Observations - Web template **(Json variant of operational template)**](technical/web_template/Salford_COPD_Self_Reporting__import_template.json)
