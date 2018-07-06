@@ -1,7 +1,7 @@
-## COPD Self Reporting to openEHR FLAT JSON PROMS Mapping guidance
+## COPD Self Reporting to openEHR FLAT JSON Mapping guidance
 
-29 June-2018
-V2.0.0
+06-July-2018
+V2.1.0
 
 ### Introduction
 
@@ -64,173 +64,7 @@ All of the values on the header should be hardwired, other than `ctx/time`, whic
 
 The target archetype / JSON row will depend on the `question` attribute in the incoming `line`.
 
-#### How are you feeling today?
-
- ##### `line` attributes
- `question`: `How are you feeling today or since your last reading?'
-
-```xml
-<line question='How are you feeling today or since your last reading?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='As well as usual' valuetype='Unknown' />
-
-```
-##### JSON target:  
-
-```json
-  "copd_self_reported_observations/story_history/salford_copd_questions:0/feeling_today_or_since_last_reading|code": "{{value}}",
-```
-
-##### Value mappings
-
-| Incoming value       | openEHR value |
-|:--------------------:|:-------------:|
-| `As well as usual`   | `at0015`      |
-| `Better than usual`  | `at0016`      |
-| `Worse than usual`   | `at0017`      |
-
-
-** Notes: **
-
-- `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
-  e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
-
-- `resDate` is carried only once for all of the questions, it being assumed that all of the questions are answered at the same date and time.
-
-
-
-- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
-
-#### How are you breathing today?
-
- ##### `line` attributes
- `question`: `How are you breathing today or since your last reading?'
-
-```xml
-<line question='How are you breathing today or since your last reading?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='Normal for you' valuetype='Unknown' />
-```
-##### JSON target:  
-
-```json
-  "copd_self_reported_observations/story_history/salford_copd_questions:0/breathing_today_or_since_last_reading|code": "at0020",
-```
-
-##### Value mappings
-
-| Incoming value       | openEHR value |
-|:--------------------:|:-------------:|
-| `Normal for patient`    | `at0018`      |
-| `Worse for patient`     | `at0019`      |
-| `Much worse for patient`| `at0020`      |
-
-
-** Notes: **
-
-- `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
-  e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
-
-- `resDate` is carried only once for all of the questions, it being assumed that all of the questions are answered at the same date and time.
-
-- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
-
-#### Are you using oxygen?
-
- ##### `line` attributes
- `question`: `Are you using oxygen?'
-
-```xml
-<line question='Are you using oxygen?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='No' valuetype='Unknown' />
-```
-##### JSON target:  
-
-```json
-  "copd_self_reported_observations/story_history/salford_copd_questions:0/using_oxygen|code": "at0022",
-```
-
-##### Value mappings
-
-| Incoming value       | openEHR value |
-|:--------------------:|:-------------:|
-| `Yes`    | `at0021`      |
-| `Yes continuous oxygen`     | `at0022`      |
-| `No`| `at0023`      |
-
-
-** Notes: **
-
-- `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
-  e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
-
-- `resDate` is carried only once for all of the questions, it being assumed that all of the questions are answered at the same date and time.
-
-- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
-
-
-#### Reading taken on oxygen?
-
- ##### `line` attributes
- `question`: `If using oxygen, was your oxygen saturation reading taken on oxygen?'
-
-```xml
-<line question='If using oxygen, was your oxygen saturation reading taken on oxygen?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='No' valuetype='Unknown' />
-```
-##### JSON target:  
-
-```json
-  "copd_self_reported_observations/story_history/salford_copd_questions:0/using_oxygen|code": "at0022",
-```
-
-##### Value mappings
-
-| Incoming value       | openEHR value |
-|:--------------------:|:-------------:|
-| `Yes`    | `at0025`      |
-| `No`| `at0026`      |
-
-
-** Notes: **
-
-- `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
-  e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
-
-- `resDate` is carried only once for all of the questions, it being assumed that all of the questions are answered at the same date and time.
-
-- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
-
-
-#### Shortness of breath since last reading?
-
- ##### `line` attributes
- `question`: `Since your last reading, have you been experiencing shortness of breath?'
-
-```xml
-<line question='Since your last reading, have you been experiencing shortness of breath?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='Same as last reading' valuetype='Unknown' />
-
-```
-##### JSON target:  
-
-```json
-  "copd_self_reported_observations/story_history/salford_copd_questions:0/shortness_of_breath_since_last_reading|code": "at0028",
-```
-
-##### Value mappings
-
-| Incoming value       | openEHR value |
-|:--------------------:|:-------------:|
-| `Same as last reading`    | `at0027`      |
-| `Worse than as last reading`     | `at0028`      |
-| `Much worse than as last reading`| `at0029`      |
-
-
-** Notes: **
-
-- `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
-  e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
-
-- `resDate` is carried only once for all of the questions, it being assumed that all of the questions are answered at the same date and time.
-
-- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
-
-
-#### Body temperature
+ #### Body temperature
 
 ##### `line` attributes
   `question`: `TEMPERATURE`
@@ -311,3 +145,181 @@ The target archetype / JSON row will depend on the `question` attribute in the i
 
 - The value of `alerted` should be carried in the `comment` element prepended with
   'Alerted' e.g. `alerted='Normal'` => ``.../comment": "Alerted: Normal",``
+
+
+	#### PROM questions
+
+	The other incoming XML `lines` relate to Patient Questions/Answers
+
+	** Notes for ALL Patient questions: **
+
+	- `resDate` must be converted to the ISO8601 format (as used by openEHR and FHIR).
+	  e.g. '2015-07-15 09:03:36Z'	-> '2015-07-15T12:09:03:36Z'
+
+	- `resDate` is carried only **once for all of the questions**, it being assumed that all of the questions are answered at the same date and time. You do not actually need to import the date from each `line` but it imay be easier to just overwrite the date already recorded.
+
+	- The value of `alerted` is ignored for question-like responses and is only carried for the numeric device-derived values.
+
+	 ##### `line` attributes
+	 `question`: `How are you feeling today or since your last reading?'
+
+	```xml
+	<line question='How are you feeling today or since your last reading?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='As well as usual' valuetype='Unknown' />
+	```
+	##### JSON target:  
+
+	```json
+	  "copd_self_reported_observations/story_history/salford_copd_questions:0/feeling_today_or_since_last_reading": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+
+	```
+
+
+
+	#### How are you breathing today?
+
+	 ##### `line` attributes
+	 `question`: `How are you breathing today or since your last reading?'
+
+	```xml
+	<line question='How are you breathing today or since your last reading?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='Normal for you' valuetype='Unknown' />
+	```
+	##### JSON target:  
+
+	```json
+	  "copd_self_reported_observations/story_history/salford_copd_questions:0/breathing_today_or_since_last_reading": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+	```
+
+	#### Are you using oxygen?
+
+	 ##### `line` attributes
+	 `question`: `Are you using oxygen?'
+
+	```xml
+	<line question='Are you using oxygen?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='No' valuetype='Unknown' />
+	```
+	##### JSON target:  
+
+	```json
+	  "copd_self_reported_observations/story_history/salford_copd_questions:0/using_oxygen": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+	```
+
+
+	#### Reading taken on oxygen?
+
+	 ##### `line` attributes
+	 `question`: `If using oxygen, was your oxygen saturation reading taken on oxygen?'
+
+	```xml
+	<line question='If using oxygen, was your oxygen saturation reading taken on oxygen?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='No' valuetype='Unknown' />
+	```
+	##### JSON target:  
+
+	```json
+	  "copd_self_reported_observations/story_history/salford_copd_questions:0/using_oxygen": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+	```
+
+	#### Shortness of breath since last reading?
+
+	 ##### `line` attributes
+	 `question`: `Since your last reading, have you been experiencing shortness of breath?'
+
+	```xml
+	<line question='Since your last reading, have you been experiencing shortness of breath?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='Same as last reading' valuetype='Unknown' />
+
+	```
+	##### JSON target:  
+
+	```json
+	  "copd_self_reported_observations/story_history/salford_copd_questions:0/shortness_of_breath_since_last_reading": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+	```
+
+	#### Are you coughing?
+
+	 ##### `line` attributes
+	 `question`: `Are you coughing?`
+
+	```xml
+	<line question='Are you coughing?' alerted='Normal' codevalue='' term='' readcode='171' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='No' valuetype='Unknown' />
+	```
+	##### JSON target:  
+
+	```json
+	  "copd_self_reported_observations/story_history/salford_copd_questions:0/coughing": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+	```
+
+	#### How is your cough?
+
+	 ##### `line` attributes
+	 `question`: `How is your cough?`
+
+	```xml
+	<line question='How is your cough?' alerted='Normal' codevalue='' term='' readcode='171' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='No' valuetype='Normal for you' />
+	```
+	##### JSON target:  
+
+	```json
+	  "copd_self_reported_observations/story_history/salford_copd_questions:0/status_of_cough": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+	```
+	#### Are you producing sputum?
+
+	 ##### `line` attributes
+	 `question`: `Are you producing sputum?`
+
+	```xml
+	<line question='Are you producing sputum?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='Normal for you' valuetype='Unknown' />
+	```
+	##### JSON target:  
+
+	```json
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/producing_sputum": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+	```
+	#### Is the colour of your sputum:
+
+	 ##### `line` attributes
+	 `question`: `Is the colour of your sputum:`
+
+	```xml
+	<line question='Is the colour of your sputum:' alerted='Normal' codevalue='' term='' readcode='1713' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='Clear / White' valuetype='Numeric' />
+	```
+	##### JSON target:  
+
+	```json
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/colour_of_sputum": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+	```
+	#### Have you taken your medication including inhalers/nebuliser?
+
+	 ##### `line` attributes
+	 `question`: `Have you taken your medication including inhalers/nebuliser?`
+
+	```xml
+	<line question='Have you taken your medication including inhalers/nebuliser?' alerted='Normal' codevalue='' term='' readcode='[none]' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='Yes' valuetype='Unknown' />
+	```
+	##### JSON target:  
+
+	```json
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/taken_medication": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+	```
+	#### Are your ankles swollen?
+
+	 ##### `line` attributes
+	 `question`: `Are your ankles swollen?`
+
+	```xml
+	<line question='Are your ankles swollen?' alerted='Normal' codevalue='' term='' readcode='22C2' snomed='' resdate='2017-02-08 07:51:01Z' itemindex='0' units='' value='Moderate but not worse than last reading' valuetype='Numeric' />
+	```
+	##### JSON target:  
+
+	```json
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/swollen_ankle": "{{value}}",
+		"copd_self_reported_observations/story_history/salford_copd_questions:0/history_origin" : "{{resdate}}"
+	```

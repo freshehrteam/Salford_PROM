@@ -15,8 +15,8 @@
             "localizedName": "COPD Self Reported Observations",
             "rmType": "COMPOSITION",
             "nodeId": "openEHR-EHR-COMPOSITION.report.v1",
-            "min": 1,
-            "max": 1,
+            "min": 0,
+            "max": -1,
             "localizedNames": {
                 "en": "COPD Self Reported Observations"
             },
@@ -28,7 +28,6 @@
                 {
                     "id": "context",
                     "rmType": "EVENT_CONTEXT",
-                    "nodeId": "",
                     "min": 1,
                     "max": 1,
                     "aqlPath": "/context",
@@ -37,7 +36,7 @@
                             "id": "start_time",
                             "name": "Start_time",
                             "rmType": "DV_DATE_TIME",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/context/start_time",
                             "inputs": [
@@ -51,7 +50,7 @@
                             "id": "setting",
                             "name": "Setting",
                             "rmType": "DV_CODED_TEXT",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/context/setting",
                             "inputs": [
@@ -82,9 +81,6 @@
                     "localizedDescriptions": {
                         "en": "The subjective clinical history of the subject of care as recorded directly by the subject, or reported to a clinician by the subject or a carer."
                     },
-                    "annotations": {
-                        "view:pass_through": "true"
-                    },
                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]",
                     "children": [
                         {
@@ -101,16 +97,13 @@
                             "localizedDescriptions": {
                                 "en": "Local archetype to capture specific questions asked in Salford COPD self-reporting project."
                             },
-                            "annotations": {
-                                "view:pass_through": "true"
-                            },
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]",
                             "children": [
                                 {
                                     "id": "feeling_today_or_since_last_reading",
                                     "name": "Feeling today or since last reading",
                                     "localizedName": "Feeling today or since last reading",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0001",
                                     "min": 0,
                                     "max": 1,
@@ -126,40 +119,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0001]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0015",
-                                                    "label": "As well as usual",
-                                                    "localizedLabels": {
-                                                        "en": "As well as usual"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are feeling as well as usual today or since last reading."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0016",
-                                                    "label": "Better than usual",
-                                                    "localizedLabels": {
-                                                        "en": "Better than usual"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are feeling better than usual today or since last reading."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0017",
-                                                    "label": "Worse than usual",
-                                                    "localizedLabels": {
-                                                        "en": "Worse than usual"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are feeling worse than usual today or since last reading."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -167,7 +127,7 @@
                                     "id": "breathing_today_or_since_last_reading",
                                     "name": "Breathing today or since last reading",
                                     "localizedName": "Breathing today or since last reading",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0002",
                                     "min": 0,
                                     "max": 1,
@@ -183,40 +143,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0002]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0018",
-                                                    "label": "Normal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Normal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are breathing normal for them today or since last reading."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0019",
-                                                    "label": "Worse than normal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Worse than normal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are breathing worse than normal for them today or since last reading."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0020",
-                                                    "label": "Much worse than normal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Much worse than normal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are breathing much worse than normal for them today or since last reading."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -224,7 +151,7 @@
                                     "id": "using_oxygen",
                                     "name": "Using oxygen",
                                     "localizedName": "Using oxygen",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0003",
                                     "min": 0,
                                     "max": 1,
@@ -240,40 +167,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0003]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0021",
-                                                    "label": "Yes",
-                                                    "localizedLabels": {
-                                                        "en": "Yes"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are using oxygen."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0022",
-                                                    "label": "Yes continuous oxygen",
-                                                    "localizedLabels": {
-                                                        "en": "Yes continuous oxygen"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are using continuous oxygen."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0023",
-                                                    "label": "No",
-                                                    "localizedLabels": {
-                                                        "en": "No"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are not using oxygen."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -281,7 +175,7 @@
                                     "id": "reading_taken_on_oxygen",
                                     "name": "Reading taken on oxygen",
                                     "localizedName": "Reading taken on oxygen",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0024",
                                     "min": 0,
                                     "max": 1,
@@ -294,30 +188,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0024]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0025",
-                                                    "label": "Yes",
-                                                    "localizedLabels": {
-                                                        "en": "Yes"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that oxygen saturation reading was taken on oxygen."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0026",
-                                                    "label": "No",
-                                                    "localizedLabels": {
-                                                        "en": "No"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that oxygen saturation reading was not taken on oxygen."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -325,7 +196,7 @@
                                     "id": "shortness_of_breath_since_last_reading",
                                     "name": "Shortness of breath since last reading",
                                     "localizedName": "Shortness of breath since last reading",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0006",
                                     "min": 0,
                                     "max": 1,
@@ -341,40 +212,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0006]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0027",
-                                                    "label": "Same as last reading",
-                                                    "localizedLabels": {
-                                                        "en": "Same as last reading"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that experiencing shortness of breath has been the same as last reading."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0028",
-                                                    "label": "Worse than last reading",
-                                                    "localizedLabels": {
-                                                        "en": "Worse than last reading"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that experiencing shortness of breath has been worse than last reading."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0029",
-                                                    "label": "Much worse than last reading",
-                                                    "localizedLabels": {
-                                                        "en": "Much worse than last reading"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that experiencing shortness of breath has been much worse than last reading."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -382,7 +220,7 @@
                                     "id": "wake_with_breathing_difficulties",
                                     "name": "Wake with breathing difficulties",
                                     "localizedName": "Wake with breathing difficulties",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0009",
                                     "min": 0,
                                     "max": 1,
@@ -398,50 +236,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0009]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0030",
-                                                    "label": "No",
-                                                    "localizedLabels": {
-                                                        "en": "No"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they did not wake in the night with breathing difficulties since last reading."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0031",
-                                                    "label": "Waking but normal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Waking but normal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they did wake in the night with breathing difficulties since last reading, but this was normal for them."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0032",
-                                                    "label": "Waking worse than normal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Waking worse than normal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they did wake in the night with breathing difficulties since last reading, and that this was worse than normal for them."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0033",
-                                                    "label": "Can't sleep due to breathing",
-                                                    "localizedLabels": {
-                                                        "en": "Can't sleep due to breathing"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they can't sleep due to breathing since their last reading."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -449,7 +244,7 @@
                                     "id": "coughing",
                                     "name": "Coughing",
                                     "localizedName": "Coughing",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0010",
                                     "min": 0,
                                     "max": 1,
@@ -465,30 +260,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0010]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0034",
-                                                    "label": "Yes",
-                                                    "localizedLabels": {
-                                                        "en": "Yes"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are coughing."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0035",
-                                                    "label": "No",
-                                                    "localizedLabels": {
-                                                        "en": "No"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are not coughing."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -496,7 +268,7 @@
                                     "id": "status_of_cough",
                                     "name": "Status of cough",
                                     "localizedName": "Status of cough",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0036",
                                     "min": 0,
                                     "max": 1,
@@ -509,40 +281,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0036]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0037",
-                                                    "label": "Normal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Normal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that cough is normal for them."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0038",
-                                                    "label": "Worse than normal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Worse than normal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that cough is worse than normal for them."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0039",
-                                                    "label": "Much worse than normal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Much worse than normal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that cough is much worse than normal for them."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -550,7 +289,7 @@
                                     "id": "producing_sputum",
                                     "name": "Producing sputum",
                                     "localizedName": "Producing sputum",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0011",
                                     "min": 0,
                                     "max": 1,
@@ -566,40 +305,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0011]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0040",
-                                                    "label": "Normal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Normal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are producing sputum normal for them."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0041",
-                                                    "label": "Worse than nornal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Worse than nornal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are producing sputum worse than normal for them."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0042",
-                                                    "label": "Much worse than normal for patient",
-                                                    "localizedLabels": {
-                                                        "en": "Much worse than normal for patient"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they are producing sputum much worse than normal for them."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -607,7 +313,7 @@
                                     "id": "colour_of_sputum",
                                     "name": "Colour of sputum",
                                     "localizedName": "Colour of sputum",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0012",
                                     "min": 0,
                                     "max": 1,
@@ -623,40 +329,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0012]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0043",
-                                                    "label": "Clear or white",
-                                                    "localizedLabels": {
-                                                        "en": "Clear or white"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that the colour of their sputum is clear or white."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0044",
-                                                    "label": "Yellow",
-                                                    "localizedLabels": {
-                                                        "en": "Yellow"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that the colour of their sputum is yellow."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0045",
-                                                    "label": "Green or brown",
-                                                    "localizedLabels": {
-                                                        "en": "Green or brown"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that the colour of their sputum is green or brown."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -664,7 +337,7 @@
                                     "id": "taken_medication",
                                     "name": "Taken medication",
                                     "localizedName": "Taken medication",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0013",
                                     "min": 0,
                                     "max": 1,
@@ -680,30 +353,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0013]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0046",
-                                                    "label": "Yes",
-                                                    "localizedLabels": {
-                                                        "en": "Yes"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they have taken their medication."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0047",
-                                                    "label": "No",
-                                                    "localizedLabels": {
-                                                        "en": "No"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that they have not taken their medication."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 },
@@ -711,7 +361,7 @@
                                     "id": "swollen_ankles",
                                     "name": "Swollen ankles",
                                     "localizedName": "Swollen ankles",
-                                    "rmType": "DV_CODED_TEXT",
+                                    "rmType": "DV_TEXT",
                                     "nodeId": "at0014",
                                     "min": 0,
                                     "max": 1,
@@ -727,40 +377,7 @@
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.salford_copd_questions.v0]/items[at0014]/value",
                                     "inputs": [
                                         {
-                                            "suffix": "code",
-                                            "type": "CODED_TEXT",
-                                            "list": [
-                                                {
-                                                    "value": "at0048",
-                                                    "label": "No",
-                                                    "localizedLabels": {
-                                                        "en": "No"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that their ankles are not swollen."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0049",
-                                                    "label": "Moderate but not worse than last reading",
-                                                    "localizedLabels": {
-                                                        "en": "Moderate but not worse than last reading"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that their ankles are moderately swollen but not worse than last reading."
-                                                    }
-                                                },
-                                                {
-                                                    "value": "at0050",
-                                                    "label": "Yes and getting worse",
-                                                    "localizedLabels": {
-                                                        "en": "Yes and getting worse"
-                                                    },
-                                                    "localizedDescriptions": {
-                                                        "en": "Patient reports that their ankles are swollen and getting worse."
-                                                    }
-                                                }
-                                            ]
+                                            "type": "TEXT"
                                         }
                                     ]
                                 }
@@ -770,7 +387,7 @@
                             "id": "time",
                             "name": "Time",
                             "rmType": "DV_DATE_TIME",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/data[at0001]/events[at0002]/time",
                             "inputs": [
@@ -784,7 +401,7 @@
                             "id": "language",
                             "name": "Language",
                             "rmType": "CODE_PHRASE",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/language",
                             "inContext": true
@@ -793,7 +410,7 @@
                             "id": "encoding",
                             "name": "Encoding",
                             "rmType": "CODE_PHRASE",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/encoding",
                             "inContext": true
@@ -802,7 +419,7 @@
                             "id": "subject",
                             "name": "Subject",
                             "rmType": "PARTY_PROXY",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.story.v1]/subject",
                             "inContext": true
@@ -829,7 +446,7 @@
                             "id": "any_event",
                             "name": "Any event",
                             "localizedName": "Any event",
-                            "rmType": "POINT_EVENT",
+                            "rmType": "EVENT",
                             "nodeId": "at0002",
                             "min": 0,
                             "max": -1,
@@ -838,9 +455,6 @@
                             },
                             "localizedDescriptions": {
                                 "en": "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
-                            },
-                            "annotations": {
-                                "view:pass_through": "true"
                             },
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/data[at0001]/events[at0002]",
                             "children": [
@@ -890,12 +504,12 @@
                                     ],
                                     "termBindings": {
                                         "SNOMED-CT": {
-                                            "value": "431314004",
-                                            "terminologyId": "SNOMED-CT"
+                                            "value": "[SNOMED-CT::431314004]",
+                                            "terminologyId": "at0006"
                                         },
                                         "LOINC": {
-                                            "value": "59408-5",
-                                            "terminologyId": "LOINC"
+                                            "value": "[LOINC::59408-5]",
+                                            "terminologyId": "at0006"
                                         }
                                     }
                                 },
@@ -924,7 +538,7 @@
                                     "id": "time",
                                     "name": "Time",
                                     "rmType": "DV_DATE_TIME",
-                                    "min": 1,
+                                    "min": 0,
                                     "max": 1,
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/data[at0001]/events[at0002]/time",
                                     "inputs": [
@@ -940,7 +554,7 @@
                             "id": "language",
                             "name": "Language",
                             "rmType": "CODE_PHRASE",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/language",
                             "inContext": true
@@ -949,7 +563,7 @@
                             "id": "encoding",
                             "name": "Encoding",
                             "rmType": "CODE_PHRASE",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/encoding",
                             "inContext": true
@@ -958,7 +572,7 @@
                             "id": "subject",
                             "name": "Subject",
                             "rmType": "PARTY_PROXY",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse_oximetry.v1,'O2Sat']/subject",
                             "inContext": true
@@ -985,7 +599,7 @@
                             "id": "any_event",
                             "name": "Any event",
                             "localizedName": "Any event",
-                            "rmType": "POINT_EVENT",
+                            "rmType": "EVENT",
                             "nodeId": "at0003",
                             "min": 0,
                             "max": -1,
@@ -995,11 +609,67 @@
                             "localizedDescriptions": {
                                 "en": "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
                             },
-                            "annotations": {
-                                "view:pass_through": "true"
-                            },
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/data[at0002]/events[at0003]",
                             "children": [
+                                {
+                                    "id": "pulse_rate",
+                                    "name": "Pulse Rate",
+                                    "localizedName": "Pulse Rate",
+                                    "rmType": "DV_QUANTITY",
+                                    "nodeId": "at0004",
+                                    "min": 0,
+                                    "max": 1,
+                                    "localizedNames": {
+                                        "en": "Pulse Rate"
+                                    },
+                                    "localizedDescriptions": {
+                                        "en": "The pulse rate, measured in beats per minute."
+                                    },
+                                    "annotations": {
+                                        "comment": "Run-time name constraints have been specified, in order to simplify the renaming of this data element to Pulse Rate or Heart Rate, as required."
+                                    },
+                                    "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/data[at0002]/events[at0003]/data[at0001]/items[at0004,'Pulse Rate']/value",
+                                    "inputs": [
+                                        {
+                                            "suffix": "magnitude",
+                                            "type": "DECIMAL",
+                                            "validation": {
+                                                "range": {
+                                                    "minOp": ">=",
+                                                    "min": 0
+                                                },
+                                                "precision": {
+                                                    "minOp": ">=",
+                                                    "min": 0,
+                                                    "maxOp": "<=",
+                                                    "max": 0
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "suffix": "unit",
+                                            "type": "CODED_TEXT",
+                                            "list": [
+                                                {
+                                                    "value": "/min",
+                                                    "label": "/min",
+                                                    "validation": {
+                                                        "range": {
+                                                            "minOp": ">=",
+                                                            "min": 0
+                                                        },
+                                                        "precision": {
+                                                            "minOp": ">=",
+                                                            "min": 0,
+                                                            "maxOp": "<=",
+                                                            "max": 0
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
                                 {
                                     "id": "heart_rate",
                                     "name": "Heart Rate",
@@ -1084,7 +754,7 @@
                                     "id": "time",
                                     "name": "Time",
                                     "rmType": "DV_DATE_TIME",
-                                    "min": 1,
+                                    "min": 0,
                                     "max": 1,
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/data[at0002]/events[at0003]/time",
                                     "inputs": [
@@ -1100,7 +770,7 @@
                             "id": "language",
                             "name": "Language",
                             "rmType": "CODE_PHRASE",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/language",
                             "inContext": true
@@ -1109,7 +779,7 @@
                             "id": "encoding",
                             "name": "Encoding",
                             "rmType": "CODE_PHRASE",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/encoding",
                             "inContext": true
@@ -1118,7 +788,7 @@
                             "id": "subject",
                             "name": "Subject",
                             "rmType": "PARTY_PROXY",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.pulse.v1,'Heart Rate']/subject",
                             "inContext": true
@@ -1145,7 +815,7 @@
                             "id": "any_event",
                             "name": "Any event",
                             "localizedName": "Any event",
-                            "rmType": "POINT_EVENT",
+                            "rmType": "EVENT",
                             "nodeId": "at0003",
                             "min": 0,
                             "max": -1,
@@ -1154,9 +824,6 @@
                             },
                             "localizedDescriptions": {
                                 "en": "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
-                            },
-                            "annotations": {
-                                "view:pass_through": "true"
                             },
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]",
                             "children": [
@@ -1245,7 +912,7 @@
                                     "id": "time",
                                     "name": "Time",
                                     "rmType": "DV_DATE_TIME",
-                                    "min": 1,
+                                    "min": 0,
                                     "max": 1,
                                     "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/time",
                                     "inputs": [
@@ -1261,7 +928,7 @@
                             "id": "language",
                             "name": "Language",
                             "rmType": "CODE_PHRASE",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/language",
                             "inContext": true
@@ -1270,7 +937,7 @@
                             "id": "encoding",
                             "name": "Encoding",
                             "rmType": "CODE_PHRASE",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/encoding",
                             "inContext": true
@@ -1279,7 +946,7 @@
                             "id": "subject",
                             "name": "Subject",
                             "rmType": "PARTY_PROXY",
-                            "min": 1,
+                            "min": 0,
                             "max": 1,
                             "aqlPath": "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/subject",
                             "inContext": true
@@ -1290,7 +957,7 @@
                     "id": "composer",
                     "name": "Composer",
                     "rmType": "PARTY_PROXY",
-                    "min": 1,
+                    "min": 0,
                     "max": 1,
                     "aqlPath": "/composer",
                     "inContext": true
