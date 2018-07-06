@@ -39,7 +39,7 @@ It is intended that these will be uploaded/published to the international [openE
 
 ### COPD Self Reported Observations
 
-1. Analyse the [COPD Self Reported Observations XML](technical/mappings/copd/XML-Example-PMS.TXT) example and associated [schema](technical/mappings/copd/XSD-Example-PMS.txt). This is a feed from a system holding patient device information relating to COPD.
+1. Analyse the [COPD Self Reported Observations XML](technical/mappings/copd/COPD.XML) example and associated [schema](technical/mappings/copd/XSD-Example-PMS.xsd). This is a feed from a system holding patient device information relating to COPD.
 2. Create an openEHR template as a target for importing the COPD input xml document.
 3. Identify existing openEHR archetypes and create new archetypes (reusable where possible) to be used within the openEHR template.
 4. Create a mapping guidance document for the input xml to an openEHR FLAT JSON composition.
