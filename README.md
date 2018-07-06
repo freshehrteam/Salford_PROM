@@ -53,9 +53,10 @@ It is intended that these will be uploaded/published to the international [openE
   - [Pulse / Heart beat | openEHR-EHR-OBSERVATION.pulse.v1](models/CKM/remote/org.openehr/archetypes/entry/observation/openEHR-EHR-OBSERVATION.pulse.v1.adl)
   - [Blood Pressure | openEHR-EHR-OBSERVATION.blood_pressure.v1](models/CKM/remote/org.openehr/archetypes/entry/observation/openEHR-EHR-OBSERVATION.blood_pressure.v1.adl)
   - [Body temperature| openEHR-EHR-OBSERVATION.body_temperature.v2](models/CKM/remote/org.openehr/archetypes/entry/observation/openEHR-EHR-OBSERVATION.body_temperature.v2.adl)
+  - [Story | openEHR-EHR-OBSERVATION.story.v1.adl](models/ckm/remote/org.openehr/archetypes/entry/observation/openEHR-EHR-OBSERVATION.story.v1.adl)
 
 ##### New local archetypes
-  - None
+  - [COPD Salford COPD Questions | openEHR-EHR-CLUSTER.salford_copd_questions.v0.adl](models/local/archetypes/cluster/openEHR-EHR-CLUSTER.salford_copd_questions.v0.adl)
 
 ##### New templates
   -  [COPD Self Reported Observations - Salford COPD Self Reporting.v0](models/Templates/Salford%20COPD%20Self%20Reporting.v0.oet)
@@ -64,5 +65,5 @@ It is intended that these will be uploaded/published to the international [openE
 
 - [COPD Self Reported Observations Mapping Guidance document](technical/mappings/copd/COPD_Self_Reporting_mapping.md)
 - [Example target COPD Self Reported Observations FLAT JSON instance](technical/instance/Salford_COPD_Self_reporting_FLAT_1.json)
-- [COPD Self Reported Observations - Operational template](technical/operational/Salford%20COPD%20Self%20Reporting.opt)
+- [COPD Self Reported Observations - Operational template](technical/operational/Salford%20COPD%20Self%20Reporting.v0.opt)
 - [COPD Self Reported Observations - Web template](technical/web_template/Salford_COPD_Self_Reporting__import_template.json)
