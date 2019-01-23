@@ -10,11 +10,17 @@ language
 description
 	original_author = <
 		["date"] = <"2019-01-23">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Ltd.">
+		["email"] = <"ian@freshehr.com">
 	>
 	lifecycle_state = <"unmanaged">
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
+			purpose = <"To record an assessment of breathlessness according to the MRC Breathlessness scale.">
+			keywords = <"COPD, breathlessness, dyspnoea, PROM", ...>
+			misuse = <"MRC Dyspnoea scale / MRC Breathlessness scale - Research - Medical Research Council. (2019). Retrieved from https://mrc.ukri.org/research/facilities-and-resources-for-researchers/mrc-scales/mrc-dyspnoea-scale-mrc-breathlessness-scale/">
 		>
 	>
 	other_details = <
@@ -23,12 +29,13 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"e193150579ee6f29d702d3e767ba272e">
+		["references"] = <"MRC Dyspnoea scale / MRC Breathlessness scale">
+		["MD5-CAM-1.0.1"] = <"d9cae6f58c47211eb576acd7a83e12b3">
 		["build_uid"] = <"641b298d-ac9c-3213-a943-f90b047a9677">
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- Mrc Breathlessness Score
+	OBSERVATION[at0000] matches {    -- MRC Breathlessness Scale
 		data matches {
 			HISTORY[at0001] matches {    -- History
 				events cardinality matches {0..*; unordered} matches {
@@ -52,6 +59,16 @@ definition
 				}
 			}
 		}
+		protocol matches {
+			ITEM_TREE[at0010] matches {    -- ItemTree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0011] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
 	}
 
 ontology
@@ -59,8 +76,8 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Mrc Breathlessness Score">
-					description = <"mrc_breathlessness_score">
+					text = <"MRC Breathlessness Scale">
+					description = <"An assessment of breathlessness according to the MRC Breathlessness scale.">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -97,6 +114,14 @@ ontology
 				["at0009"] = <
 					text = <"Too breathless to leave the house, or breathless when undressing">
 					description = <"Too breathless to leave the house, or breathless when undressing">
+				>
+				["at0010"] = <
+					text = <"ItemTree">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Extension">
+					description = <"*">
 				>
 			>
 		>
